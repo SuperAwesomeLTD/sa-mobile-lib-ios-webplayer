@@ -9,10 +9,10 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-SAWebPlayer_Tests.xcscheme</key>
+		<key>Pods-SAWebPlayer_Tests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>SAWebPlayer-SAWebPlayer.xcscheme</key>
 		<dict>
