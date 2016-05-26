@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-SAWebPlayer_Example.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SAWebPlayer_Tests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SAWebPlayer-SAWebPlayer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SAWebPlayer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>3B8682B20451DC7DCD0CD6403CA318F7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>525644FF5A45EE7CED56938702144EA6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6F9654A6E23A4EFBA12CE5BFDE7CF6F8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>966F68E8473E81534753978CF7D1DD4D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

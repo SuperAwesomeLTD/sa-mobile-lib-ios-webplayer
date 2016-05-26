@@ -1,0 +1,14 @@
+PODS:
+  - SAWebPlayer (1.0.0)
+
+DEPENDENCIES:
+  - SAWebPlayer (from `../`)
+
+EXTERNAL SOURCES:
+  SAWebPlayer:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SAWebPlayer: a592e62b276a904ded2bd298c1072b2d75cfd17c
+
+COCOAPODS: 0.38.2
