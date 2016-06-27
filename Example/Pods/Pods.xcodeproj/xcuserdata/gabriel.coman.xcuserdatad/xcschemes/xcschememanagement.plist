@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-SAWebPlayer_Tests.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>isShown</key>
-			<true/>
-		</dict>
 		<key>SAWebPlayer-SAWebPlayer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3B8682B20451DC7DCD0CD6403CA318F7</key>
+		<key>06FC1B4CCEA8B3E59DAB2891FD62F1D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>525644FF5A45EE7CED56938702144EA6</key>
+		<key>69E3F43F20C9FA236DD65D023D7F6481</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6F9654A6E23A4EFBA12CE5BFDE7CF6F8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>966F68E8473E81534753978CF7D1DD4D</key>
+		<key>81F77865A1D9620D010A121B167B67F8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
