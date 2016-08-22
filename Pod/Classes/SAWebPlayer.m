@@ -119,13 +119,17 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     
-    // call delegate
-    _loadedOnce = true;
-    _loadResult(true);
+    if (!_loadedOnce) {
+        _loadedOnce = true;
+        _loadResult(true);
+    }
 }
 
 - (void) webView:(UIWebView*) webView didFailLoadWithError:(NSError *)error {
-    _loadResult(false);
+    if (!_loadedOnce) {
+        _loadResult(false);
+        _loadedOnce = true;
+    }
 }
 
 #pragma mark <UIScrollViewDelegate>
