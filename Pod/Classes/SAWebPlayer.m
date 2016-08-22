@@ -18,8 +18,8 @@
 @property (nonatomic, assign) CGFloat scalingFactor;
 @property (nonatomic, assign) BOOL loadedOnce;
 
-@property (nonatomic, retain) sawebplayerLoadResult loadResult;
-@property (nonatomic, retain) sawebplayerOnClick onClick;
+@property (nonatomic, strong) sawebplayerLoadResult loadResult;
+@property (nonatomic, strong) sawebplayerOnClick onClick;
 
 @end
 
