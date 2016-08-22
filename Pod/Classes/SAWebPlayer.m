@@ -18,6 +18,9 @@
 @property (nonatomic, assign) CGFloat scalingFactor;
 @property (nonatomic, assign) BOOL loadedOnce;
 
+@property (nonatomic, retain) sawebplayerLoadResult loadResult;
+@property (nonatomic, retain) sawebplayerOnClick onClick;
+
 @end
 
 @implementation SAWebPlayer
@@ -49,8 +52,14 @@
     _scalingFactor = MIN(xscale, yscale);
 }
 
-- (void) loadAdHTML:(NSString *)adHtml {
-    _adHtml = adHtml;
+- (void) loadAdHTML:(NSString*)html
+         withResult:(sawebplayerLoadResult)loadResult
+    andClickHandler:(sawebplayerOnClick)onClick {
+    
+    _loadResult = loadResult != NULL ? loadResult : ^(BOOL success){};
+    _onClick = onClick != NULL ? onClick : ^(NSURL *url){};
+    _adHtml = html;
+    
 #pragma mark SA_SDK_SPECIFIC
     _adHtml = [_adHtml stringByReplacingOccurrencesOfString:@"_WIDTH_" withString:[NSString stringWithFormat:@"%ld", (long)_adSize.width]];
     _adHtml = [_adHtml stringByReplacingOccurrencesOfString:@"_HEIGHT_" withString:[NSString stringWithFormat:@"%ld", (long)_adSize.height]];
@@ -97,10 +106,7 @@
         
         // send a click message
         NSURL *url = [request URL];
-        if (_sadelegate != NULL && [_sadelegate respondsToSelector:@selector(webPlayerWillNavigate:)]) {
-            [_sadelegate webPlayerWillNavigate:url];
-        }
-        
+        _onClick(url);
         return false;
     }
     
@@ -114,16 +120,12 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     
     // call delegate
-    if (_sadelegate != NULL && [_sadelegate respondsToSelector:@selector(webPlayerDidLoad)] && !_loadedOnce) {
-        [_sadelegate webPlayerDidLoad];
-        _loadedOnce = true;
-    }
+    _loadedOnce = true;
+    _loadResult(true);
 }
 
 - (void) webView:(UIWebView*) webView didFailLoadWithError:(NSError *)error {
-    if (_sadelegate != NULL && [_sadelegate respondsToSelector:@selector(webPlayerDidFail)]) {
-        [_sadelegate webPlayerDidFail];
-    }
+    _loadResult(false);
 }
 
 #pragma mark <UIScrollViewDelegate>
