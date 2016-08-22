@@ -135,7 +135,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     if (!_loadedOnce) {
         _loadedOnce = true;
-        _eventHandler(ContentLoader);
+        _eventHandler(ContentLoaded);
     }
 }
 

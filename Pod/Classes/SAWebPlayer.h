@@ -10,7 +10,7 @@
 
 // types of events
 typedef NS_ENUM(NSInteger, SAWebPlayerEvent) {
-    ContentLoader = 0,
+    ContentLoaded = 0,
     ContentError = 1
 };
 
