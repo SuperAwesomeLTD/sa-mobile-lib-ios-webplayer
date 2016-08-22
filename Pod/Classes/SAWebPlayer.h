@@ -10,8 +10,8 @@
 
 // types of events
 typedef NS_ENUM(NSInteger, SAWebPlayerEvent) {
-    ContentLoaded = 0,
-    ContentError = 1
+    Web_Start = 0,
+    Web_Error = 1
 };
 
 // callbacks

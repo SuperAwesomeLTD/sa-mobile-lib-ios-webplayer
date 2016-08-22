@@ -26,7 +26,7 @@
 @implementation SAWebPlayer
 
 ////////////////////////////////////////////////////////////////////////////////
-// MARK: Superclass functions
+// MARK: Init function
 ////////////////////////////////////////////////////////////////////////////////
 
 - (id) initWithFrame:(CGRect)frame {
@@ -51,7 +51,7 @@
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// MARK: Custom functions
+// MARK: Functions specific to SAWebPlayer
 ////////////////////////////////////////////////////////////////////////////////
 
 - (void) setAdSize:(CGSize)adSize {
@@ -91,6 +91,10 @@
     [self stringByEvaluatingJavaScriptFromString:script];
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// MARK: Setters
+////////////////////////////////////////////////////////////////////////////////
+
 - (void) setEventHandler:(sawebplayerEventHandler)eventHandler {
     _eventHandler = eventHandler != NULL ? eventHandler : ^(SAWebPlayerEvent event) {};
 }
@@ -103,7 +107,7 @@
 // MARK: UIWebViewDelegate
 ////////////////////////////////////////////////////////////////////////////////
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+- (BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
     BOOL shouldContinue = true;
     
@@ -128,21 +132,21 @@
     return true;
 }
 
-- (void)webViewDidStartLoad:(UIWebView *)webView {
+- (void) webViewDidStartLoad:(UIWebView *)webView {
     // do nothing
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
+- (void) webViewDidFinishLoad:(UIWebView *)webView {
     if (!_loadedOnce) {
         _loadedOnce = true;
-        _eventHandler(ContentLoaded);
+        _eventHandler(Web_Start);
     }
 }
 
 - (void) webView:(UIWebView*) webView didFailLoadWithError:(NSError *)error {
     if (!_loadedOnce) {
         _loadedOnce = true;
-        _eventHandler(ContentError);
+        _eventHandler(Web_Error);
     }
 }
 
