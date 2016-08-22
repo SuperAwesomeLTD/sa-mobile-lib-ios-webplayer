@@ -18,12 +18,16 @@
 @property (nonatomic, assign) CGFloat scalingFactor;
 @property (nonatomic, assign) BOOL loadedOnce;
 
-@property (nonatomic, strong) sawebplayerLoadResult loadResult;
-@property (nonatomic, strong) sawebplayerOnClick onClick;
+@property (nonatomic, strong) sawebplayerEventHandler eventHandler;
+@property (nonatomic, strong) sawebplayerClickHandler clickHandler;
 
 @end
 
 @implementation SAWebPlayer
+
+////////////////////////////////////////////////////////////////////////////////
+// MARK: Superclass functions
+////////////////////////////////////////////////////////////////////////////////
 
 - (id) initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -39,10 +43,16 @@
         self.scrollView.bounces = NO;
         self.allowsInlineMediaPlayback = NO;
         self.mediaPlaybackRequiresUserAction = YES;
+        _eventHandler = ^(SAWebPlayerEvent event) {};
+        _clickHandler = ^(NSURL *url) {};
     }
     
     return self;
 }
+
+////////////////////////////////////////////////////////////////////////////////
+// MARK: Custom functions
+////////////////////////////////////////////////////////////////////////////////
 
 - (void) setAdSize:(CGSize)adSize {
     _adSize = adSize;
@@ -52,12 +62,8 @@
     _scalingFactor = MIN(xscale, yscale);
 }
 
-- (void) loadAdHTML:(NSString*)html
-         withResult:(sawebplayerLoadResult)loadResult
-    andClickHandler:(sawebplayerOnClick)onClick {
+- (void) loadAdHTML:(NSString*)html {
     
-    _loadResult = loadResult != NULL ? loadResult : ^(BOOL success){};
-    _onClick = onClick != NULL ? onClick : ^(NSURL *url){};
     _adHtml = html;
     
 #pragma mark SA_SDK_SPECIFIC
@@ -85,7 +91,17 @@
     [self stringByEvaluatingJavaScriptFromString:script];
 }
 
-#pragma mark <UIWebViewDelegate>
+- (void) setEventHandler:(sawebplayerEventHandler)eventHandler {
+    _eventHandler = eventHandler != NULL ? eventHandler : ^(SAWebPlayerEvent event) {};
+}
+
+- (void) setClickHandler:(sawebplayerClickHandler)clickHandler {
+    _clickHandler = clickHandler != NULL ? clickHandler : ^(NSURL *url) {};
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// MARK: UIWebViewDelegate
+////////////////////////////////////////////////////////////////////////////////
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
@@ -104,9 +120,8 @@
     
     if (!shouldContinue) {
         
-        // send a click message
         NSURL *url = [request URL];
-        _onClick(url);
+        _clickHandler(url);
         return false;
     }
     
@@ -118,21 +133,22 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    
     if (!_loadedOnce) {
         _loadedOnce = true;
-        _loadResult(true);
+        _eventHandler(ContentLoader);
     }
 }
 
 - (void) webView:(UIWebView*) webView didFailLoadWithError:(NSError *)error {
     if (!_loadedOnce) {
-        _loadResult(false);
         _loadedOnce = true;
+        _eventHandler(ContentError);
     }
 }
 
-#pragma mark <UIScrollViewDelegate>
+////////////////////////////////////////////////////////////////////////////////
+// MARK: UIScrollViewDelegate
+////////////////////////////////////////////////////////////////////////////////
 
 - (UIView*) viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return nil;

@@ -8,21 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
-// callback functions
-typedef void (^sawebplayerLoadResult)(BOOL success);
-typedef void (^sawebplayerOnClick)(NSURL *url);
+// types of events
+typedef NS_ENUM(NSInteger, SAWebPlayerEvent) {
+    ContentLoader = 0,
+    ContentError = 1
+};
 
+// callbacks
+typedef void (^sawebplayerEventHandler)(SAWebPlayerEvent event);
+typedef void (^sawebplayerClickHandler)(NSURL* url);
+
+// main class
 @interface SAWebPlayer : UIWebView <UIWebViewDelegate>
 
-// set size (for scaling purposes)
+// main public functions
 - (void) setAdSize:(CGSize)adSize;
-
-// load ad
-- (void) loadAdHTML:(NSString*)html
-         withResult:(sawebplayerLoadResult)loadResult
-    andClickHandler:(sawebplayerOnClick)onClick;
-
-// re-arramge func
+- (void) loadAdHTML:(NSString*)html;
 - (void) updateToFrame:(CGRect)frame;
+- (void) setEventHandler:(sawebplayerEventHandler)eventHandler;
+- (void) setClickHandler:(sawebplayerClickHandler)clickHandler;
 
 @end
