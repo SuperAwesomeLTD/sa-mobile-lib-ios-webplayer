@@ -9,20 +9,13 @@
 /* Begin PBXBuildFile section */
 		64C79F7909C5E09FD924548D12DCFDE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		B895FADA98FA0EE7A5FC1C512C2C66F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		C084860348AA8731FE39863F518A3217 /* SAWebPlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0FFDF6CF153A911FD03FFBA5D4CA55 /* SAWebPlayer-dummy.m */; };
-		DE8EC8A870AAFFBD7D1EAD041A7AEF92 /* SAWebPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D09BF194B63714DEBB52A29A4725A2D /* SAWebPlayer.m */; };
-		E7EA454D8B666DD8849816F1AD78ABEA /* SAWebPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E9AA9101691B2C04BBEDA293D8E132E /* SAWebPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C084860348AA8731FE39863F518A3217 /* SAWebPlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E4376EB754EE182BDCDEEE85F57C99 /* SAWebPlayer-dummy.m */; };
+		DE8EC8A870AAFFBD7D1EAD041A7AEF92 /* SAWebPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D99F4D8C8D43DD7211F010179B325EA /* SAWebPlayer.m */; };
+		E7EA454D8B666DD8849816F1AD78ABEA /* SAWebPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 36799C2971256F40543914D3D453A0D2 /* SAWebPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9861AA879FF86058BAC5568F4BA3602 /* Pods-SAWebPlayer_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B6EC5C92641AACC97CB9652F56765D /* Pods-SAWebPlayer_Example-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AE9B0EBB00783EDC38CBC1C1A5063300 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 81F77865A1D9620D010A121B167B67F8;
-			remoteInfo = "SAWebPlayer-SAWebPlayer";
-		};
 		ED3EB74AC69A29DCDAFA2C8D1F647F08 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -34,33 +27,24 @@
 
 /* Begin PBXFileReference section */
 		1A6CF8327F4A592841FAFC428D066636 /* Pods-SAWebPlayer_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SAWebPlayer_Example.release.xcconfig"; sourceTree = "<group>"; };
-		1E9AA9101691B2C04BBEDA293D8E132E /* SAWebPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SAWebPlayer.h; sourceTree = "<group>"; };
-		5BE6894BFC62FACCB566B2B95EF46A63 /* SAWebPlayer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SAWebPlayer.xcconfig; sourceTree = "<group>"; };
+		21B2FA24EE7DFF6EB5F61F98FE30CB89 /* libPods-SAWebPlayer_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SAWebPlayer_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A4CA41E29F90DF6F0CF965F8A663F9E /* SAWebPlayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SAWebPlayer-prefix.pch"; sourceTree = "<group>"; };
+		36799C2971256F40543914D3D453A0D2 /* SAWebPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SAWebPlayer.h; sourceTree = "<group>"; };
+		4ABA5A0968BBC80390877C3EAFFE5E7B /* SAWebPlayer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SAWebPlayer.xcconfig; sourceTree = "<group>"; };
+		5D99F4D8C8D43DD7211F010179B325EA /* SAWebPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SAWebPlayer.m; sourceTree = "<group>"; };
+		65E4376EB754EE182BDCDEEE85F57C99 /* SAWebPlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SAWebPlayer-dummy.m"; sourceTree = "<group>"; };
 		68EA47683C2A433099C21D3932EDA073 /* Pods-SAWebPlayer_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SAWebPlayer_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		725910EF6EE6AEC14F02222AF59ECCE1 /* Pods-SAWebPlayer_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SAWebPlayer_Example-frameworks.sh"; sourceTree = "<group>"; };
-		72C8B2469F91E372F939CFD7DACE332C /* ResourceBundle-SAWebPlayer-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-SAWebPlayer-Info.plist"; sourceTree = "<group>"; };
-		864185870A8615B962C9D7929EC9CDF4 /* SAWebPlayer.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SAWebPlayer.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D09BF194B63714DEBB52A29A4725A2D /* SAWebPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SAWebPlayer.m; sourceTree = "<group>"; };
 		8D5AF17624967E33EF7FEAD248E07A70 /* Pods-SAWebPlayer_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SAWebPlayer_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		8F0FFDF6CF153A911FD03FFBA5D4CA55 /* SAWebPlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SAWebPlayer-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A0663BB70080F9AFBF0954D6E809BAB2 /* SAWebPlayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SAWebPlayer-prefix.pch"; sourceTree = "<group>"; };
-		AC97E7BC90A4837AEB2CEAA195CABCC2 /* libSAWebPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSAWebPlayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF5C35F1F6DACA25FD4350B4B5BD9152 /* Pods-SAWebPlayer_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SAWebPlayer_Example-resources.sh"; sourceTree = "<group>"; };
+		BBFF89CF29C501EED26DB29FE3224A60 /* libSAWebPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSAWebPlayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30D7FFA9AADBF68819A78AB72DD5914 /* Pods-SAWebPlayer_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SAWebPlayer_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D2B6EC5C92641AACC97CB9652F56765D /* Pods-SAWebPlayer_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SAWebPlayer_Example-dummy.m"; sourceTree = "<group>"; };
-		EAE289D3E78D0C40EC900164CB73D663 /* libPods-SAWebPlayer_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SAWebPlayer_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2C44A1126F01B9A5A314B3FED00D2907 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8C453C0FB1914F4BFC73770C6BB96642 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -80,14 +64,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1769BD74FB264CA98177607C78A54C6A /* SAWebPlayer */ = {
+		338BD53DB91E949B05945D005AA9F0DA /* SAWebPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				6A7F46795240109919B2BFC683DC32F8 /* Pod */,
-				F192DC8F3E084E76FD8D455C14B6608C /* Support Files */,
+				D26A61B9B46FADC74F361A9B5D285BF0 /* Pod */,
+				78DD8772D936DAD615188EA0B8E1D016 /* Support Files */,
 			);
 			name = SAWebPlayer;
 			path = ../..;
+			sourceTree = "<group>";
+		};
+		375E2AA3F4296623770ABE6916B48952 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				21B2FA24EE7DFF6EB5F61F98FE30CB89 /* libPods-SAWebPlayer_Example.a */,
+				BBFF89CF29C501EED26DB29FE3224A60 /* libSAWebPlayer.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
@@ -98,22 +91,15 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		5B91B9D436EA8C68EB4D123C31505939 /* Products */ = {
+		78DD8772D936DAD615188EA0B8E1D016 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				EAE289D3E78D0C40EC900164CB73D663 /* libPods-SAWebPlayer_Example.a */,
-				AC97E7BC90A4837AEB2CEAA195CABCC2 /* libSAWebPlayer.a */,
-				864185870A8615B962C9D7929EC9CDF4 /* SAWebPlayer.bundle */,
+				4ABA5A0968BBC80390877C3EAFFE5E7B /* SAWebPlayer.xcconfig */,
+				65E4376EB754EE182BDCDEEE85F57C99 /* SAWebPlayer-dummy.m */,
+				2A4CA41E29F90DF6F0CF965F8A663F9E /* SAWebPlayer-prefix.pch */,
 			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		6A7F46795240109919B2BFC683DC32F8 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				EDB5C82539F1891D19616E5BD26C97A9 /* Classes */,
-			);
-			path = Pod;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/SAWebPlayer";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -122,7 +108,7 @@
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				D6C97F7937B7D98D18769661446D7157 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				5B91B9D436EA8C68EB4D123C31505939 /* Products */,
+				375E2AA3F4296623770ABE6916B48952 /* Products */,
 				9A94AF6E834DAB760BAEB285B4822B60 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -143,12 +129,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D26A61B9B46FADC74F361A9B5D285BF0 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				DD140A419D7097B05F59DEDFEE232C76 /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
 		D6C97F7937B7D98D18769661446D7157 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1769BD74FB264CA98177607C78A54C6A /* SAWebPlayer */,
+				338BD53DB91E949B05945D005AA9F0DA /* SAWebPlayer */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		DD140A419D7097B05F59DEDFEE232C76 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				36799C2971256F40543914D3D453A0D2 /* SAWebPlayer.h */,
+				5D99F4D8C8D43DD7211F010179B325EA /* SAWebPlayer.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		E484862ADA08393DC54C5E5EBC61025A /* Pods-SAWebPlayer_Example */ = {
@@ -164,27 +167,6 @@
 			);
 			name = "Pods-SAWebPlayer_Example";
 			path = "Target Support Files/Pods-SAWebPlayer_Example";
-			sourceTree = "<group>";
-		};
-		EDB5C82539F1891D19616E5BD26C97A9 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				1E9AA9101691B2C04BBEDA293D8E132E /* SAWebPlayer.h */,
-				8D09BF194B63714DEBB52A29A4725A2D /* SAWebPlayer.m */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		F192DC8F3E084E76FD8D455C14B6608C /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				72C8B2469F91E372F939CFD7DACE332C /* ResourceBundle-SAWebPlayer-Info.plist */,
-				5BE6894BFC62FACCB566B2B95EF46A63 /* SAWebPlayer.xcconfig */,
-				8F0FFDF6CF153A911FD03FFBA5D4CA55 /* SAWebPlayer-dummy.m */,
-				A0663BB70080F9AFBF0954D6E809BAB2 /* SAWebPlayer-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/SAWebPlayer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,11 +194,10 @@
 			buildRules = (
 			);
 			dependencies = (
-				40802E5A703D5E742D708A6761A6AB17 /* PBXTargetDependency */,
 			);
 			name = SAWebPlayer;
 			productName = SAWebPlayer;
-			productReference = AC97E7BC90A4837AEB2CEAA195CABCC2 /* libSAWebPlayer.a */;
+			productReference = BBFF89CF29C501EED26DB29FE3224A60 /* libSAWebPlayer.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		69E3F43F20C9FA236DD65D023D7F6481 /* Pods-SAWebPlayer_Example */ = {
@@ -233,25 +214,8 @@
 			);
 			name = "Pods-SAWebPlayer_Example";
 			productName = "Pods-SAWebPlayer_Example";
-			productReference = EAE289D3E78D0C40EC900164CB73D663 /* libPods-SAWebPlayer_Example.a */;
+			productReference = 21B2FA24EE7DFF6EB5F61F98FE30CB89 /* libPods-SAWebPlayer_Example.a */;
 			productType = "com.apple.product-type.library.static";
-		};
-		81F77865A1D9620D010A121B167B67F8 /* SAWebPlayer-SAWebPlayer */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 49967DA16CAEC53E2D946581B3480169 /* Build configuration list for PBXNativeTarget "SAWebPlayer-SAWebPlayer" */;
-			buildPhases = (
-				4C1E04BDE056F6C3A49B89B44FBA8523 /* Sources */,
-				2C44A1126F01B9A5A314B3FED00D2907 /* Frameworks */,
-				AFD87EF3BE47D2EB3A5A39BAC170478E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "SAWebPlayer-SAWebPlayer";
-			productName = "SAWebPlayer-SAWebPlayer";
-			productReference = 864185870A8615B962C9D7929EC9CDF4 /* SAWebPlayer.bundle */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -260,7 +224,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -270,35 +234,17 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 5B91B9D436EA8C68EB4D123C31505939 /* Products */;
+			productRefGroup = 375E2AA3F4296623770ABE6916B48952 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				69E3F43F20C9FA236DD65D023D7F6481 /* Pods-SAWebPlayer_Example */,
 				06FC1B4CCEA8B3E59DAB2891FD62F1D8 /* SAWebPlayer */,
-				81F77865A1D9620D010A121B167B67F8 /* SAWebPlayer-SAWebPlayer */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		AFD87EF3BE47D2EB3A5A39BAC170478E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		4C1E04BDE056F6C3A49B89B44FBA8523 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9E5C7BECFEEEED6B2147762051E736A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -319,12 +265,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		40802E5A703D5E742D708A6761A6AB17 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "SAWebPlayer-SAWebPlayer";
-			target = 81F77865A1D9620D010A121B167B67F8 /* SAWebPlayer-SAWebPlayer */;
-			targetProxy = AE9B0EBB00783EDC38CBC1C1A5063300 /* PBXContainerItemProxy */;
-		};
 		8CF3BEE9413B7C3D0282E3CF45EDF715 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SAWebPlayer;
@@ -348,14 +288,18 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
@@ -369,29 +313,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
-		};
-		75AF8C8792956F69FB872BC88B8997ED /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5BE6894BFC62FACCB566B2B95EF46A63 /* SAWebPlayer.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SAWebPlayer";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/SAWebPlayer/ResourceBundle-SAWebPlayer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = SAWebPlayer;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
 		};
 		B69E0EF0E9B06A1EA89BA289A6B1173A /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -401,7 +328,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -416,14 +343,14 @@
 		};
 		C0844D6B43F07771712F84202E7C309B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5BE6894BFC62FACCB566B2B95EF46A63 /* SAWebPlayer.xcconfig */;
+			baseConfigurationReference = 4ABA5A0968BBC80390877C3EAFFE5E7B /* SAWebPlayer.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/SAWebPlayer/SAWebPlayer-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -437,14 +364,14 @@
 		};
 		C5926AC2909D448BABFC273625C783DE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5BE6894BFC62FACCB566B2B95EF46A63 /* SAWebPlayer.xcconfig */;
+			baseConfigurationReference = 4ABA5A0968BBC80390877C3EAFFE5E7B /* SAWebPlayer.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/SAWebPlayer/SAWebPlayer-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -464,7 +391,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -476,23 +403,6 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
-		};
-		EE8C0D3C6679A669CC1DB4BD144E95CF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5BE6894BFC62FACCB566B2B95EF46A63 /* SAWebPlayer.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SAWebPlayer";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/SAWebPlayer/ResourceBundle-SAWebPlayer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = SAWebPlayer;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
 		};
 		F325026B55060D3B22BEC0BAB5FA7344 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -508,13 +418,17 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",
@@ -525,7 +439,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
@@ -549,15 +463,6 @@
 			buildConfigurations = (
 				3FA2475660FFC880302AD18E29B2E5FC /* Debug */,
 				F325026B55060D3B22BEC0BAB5FA7344 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		49967DA16CAEC53E2D946581B3480169 /* Build configuration list for PBXNativeTarget "SAWebPlayer-SAWebPlayer" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EE8C0D3C6679A669CC1DB4BD144E95CF /* Debug */,
-				75AF8C8792956F69FB872BC88B8997ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

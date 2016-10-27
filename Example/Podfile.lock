@@ -1,5 +1,5 @@
 PODS:
-  - SAWebPlayer (1.0.1)
+  - SAWebPlayer (1.0.8)
 
 DEPENDENCIES:
   - SAWebPlayer (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  SAWebPlayer: 010c9523fc20ac42d84558aa6fca3a740a07b346
+  SAWebPlayer: f6b521349a82cee14ee7863e8261645a0086c37f
 
 PODFILE CHECKSUM: 2ca823a1ca9fc38288bcce0bcce7f96001f6443f
 
