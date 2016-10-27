@@ -8,20 +8,16 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
-		<key>SAWebPlayer 2.xcscheme</key>
+		<key>Pods-Tests.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SAWebPlayer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -32,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>69E3F43F20C9FA236DD65D023D7F6481</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6C407B74077527B1F841DDB0B261292F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

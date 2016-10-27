@@ -3,5 +3,9 @@ platform :ios, '7.0'
 
 target 'SAWebPlayer_Example' do
   pod 'SAWebPlayer', :path => '../'
+  
+  target 'Tests' do
+      inherit! :search_paths
+  end
 end
 
