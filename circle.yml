@@ -10,8 +10,8 @@ test:
         PROVISIONING_PROFILE=
         -sdk iphonesimulator
         -destination 'platform=iOS Simulator,OS=latest,id=33D34EBA-703E-4A82-8838-BE75171492E1'
-        -workspace 'Example/KWSiOSSDKObjC.xcworkspace'
-        -scheme "KWSiOSSDKObjC-Example"
+        -workspace 'Example/SAWebPlayer.xcworkspace'
+        -scheme "SAWebPlayer-Example"
         clean build test |
       tee $CIRCLE_ARTIFACTS/xcode_raw.log |
       xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/results.xml
