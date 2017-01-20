@@ -689,6 +689,8 @@ the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 &lt;http://www.gnu.org/philosophy/why-not-lgpl.html&gt;.
 </string>
+			<key>License</key>
+			<string>GNU GENERAL PUBLIC LICENSE Version 3</string>
 			<key>Title</key>
 			<string>SAWebPlayer</string>
 			<key>Type</key>

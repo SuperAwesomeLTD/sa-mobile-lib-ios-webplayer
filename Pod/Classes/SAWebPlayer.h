@@ -4,39 +4,29 @@
  */
 
 #import <UIKit/UIKit.h>
-
-// types of events
-typedef NS_ENUM(NSInteger, SAWebPlayerEvent) {
-    Web_Start = 0,
-    Web_Error = 1
-};
-
-// callback for handling web view events
-typedef void (^saWebPlayerDidReceiveEvent)(SAWebPlayerEvent event);
-
-// callback for handling web view clicks
-typedef void (^saWebPlayerDidReceiveClick)(NSURL* url);
+#import "SAWebView.h"
 
 /**
  * Class that abstracts away the details of loading HTML into an iOS WebView
  */
-@interface SAWebPlayer : UIWebView <UIWebViewDelegate>
+@interface SAWebPlayer : UIView
 
 /**
- * Method that sets an ad size for the web player. On this ad size the
- * scaling method will be handled
+ * Web Player init method with an ad size and a parent rect
  *
- * @param adSize a CGSize struct holding an ad width & height that are
-                 supposed to be handle by the web view
+ * @param contentSize   the size of the ad that's going to be displayed
+ * @param parentRect    the frame of the parent frame
+ * @return              a new instance of the web player
  */
-- (void) setAdSize:(CGSize)adSize;
+- (id) initWithContentSize:(CGSize) contentSize
+            andParentFrame:(CGRect) parentRect;
 
 /**
  * Method that loads a HTML string into the Web Player
  *
  * @param html a valid HTML string
  */
-- (void) loadAdHTML:(NSString*)html;
+- (void) loadHTML:(NSString*)html;
 
 /*
  * Method that updates the content of the Web Player to a new frame it may

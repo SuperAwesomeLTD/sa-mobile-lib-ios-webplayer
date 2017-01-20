@@ -5,183 +5,124 @@
 
 #import "SAWebPlayer.h"
 
-#define BASIC_AD_HTML @"<html><head></head><body><img src='https://ads.superawesome.tv/v2/demo_images/320x50.jpg'/></body></html>"
+@interface SAWebPlayer ()
 
-@interface SAWebPlayer () <UIScrollViewDelegate>
-
-// Web Player internal variables
-@property (nonatomic, strong) NSString                      *adHtml;
-@property (nonatomic, assign) CGSize                        adSize;
-@property (nonatomic, assign) CGFloat                       scalingFactor;
-@property (nonatomic, assign) BOOL                          loadedOnce;
-
-// strong references to the click and event handlers
-@property (nonatomic, strong) saWebPlayerDidReceiveEvent   eventHandler;
-@property (nonatomic, strong) saWebPlayerDidReceiveClick   clickHandler;
-
+// the internal web view
+@property (nonatomic, strong) SAWebView         *webView;
+@property (nonatomic, assign) CGSize            contentSize;
+@property (nonatomic, assign) CGAffineTransform webTransform;
 @end
 
 @implementation SAWebPlayer
 
-/**
- * Overridden "initWithFrame" method that sets up the Web Player internal state
- *
- * @param frame the view frame to assign the web player to
- * @return      a new instance of the Web Player
- */
-- (id) initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        _adHtml = BASIC_AD_HTML;
-        _adSize = frame.size;
+- (id) initWithContentSize:(CGSize) contentSize
+            andParentFrame:(CGRect) parentRect{
+    
+    // save the content size
+    _contentSize = contentSize;
+    
+    // do the calcs
+    CGRect contentRect = CGRectMake(0, 0, _contentSize.width, _contentSize.height);
+    CGRect result = [self map:contentRect into:parentRect];
+    CGFloat scaleX = result.size.width / _contentSize.width;
+    CGFloat scaleY = result.size.height / _contentSize.height;
+    CGFloat diffX = (result.size.width - _contentSize.width) / 2.0f;
+    CGFloat diffY = (result.size.height - _contentSize.height) / 2.0f;
+    
+    // init
+    if (self = [super initWithFrame: result]) {
         
-        // customize look
-        self.delegate = self;
-        self.scalesPageToFit = YES;
-        self.contentMode = UIViewContentModeScaleAspectFit;
-        self.scrollView.delegate = self;
-        self.scrollView.scrollEnabled = NO;
-        self.scrollView.bounces = NO;
-        self.allowsInlineMediaPlayback = NO;
-        self.mediaPlaybackRequiresUserAction = YES;
-        _eventHandler = ^(SAWebPlayerEvent event) {};
-        _clickHandler = ^(NSURL *url) {};
+        // clear color
+        self.backgroundColor = [UIColor clearColor];
+        
+        // init the web view
+        _webView = [[SAWebView alloc] initWithFrame:contentRect];
+        
+        // transform
+        _webTransform = CGAffineTransformConcat(CGAffineTransformMakeScale(scaleX, scaleY),
+                                                CGAffineTransformMakeTranslation(diffX, diffY));
+        _webView.transform = _webTransform;
+        
+        // add subview
+        [self addSubview:_webView];
     }
     
     return self;
+    
 }
 
-- (void) setAdSize:(CGSize)adSize {
-    _adSize = adSize;
-    CGFloat xscale = self.frame.size.width / _adSize.width;
-    CGFloat yscale = self.frame.size.height / _adSize.height;
-    _scalingFactor = MIN(xscale, yscale);
+- (void) loadHTML:(NSString*)html {
+    [_webView loadHTMLString:html baseURL:nil];
 }
 
-- (void) loadAdHTML:(NSString*)html {
+- (void) updateToFrame:(CGRect) parentRect {
     
-    // copy the HTML string
-    _adHtml = html;
+    // do the calcs
+    CGRect adRect = CGRectMake(0, 0, _contentSize.width, _contentSize.height);
+    CGRect result = [self map:adRect into:parentRect];
+    CGFloat scaleX = result.size.width / _contentSize.width;
+    CGFloat scaleY = result.size.height / _contentSize.height;
+    CGFloat diffX = (result.size.width - _contentSize.width) / 2.0f;
+    CGFloat diffY = (result.size.height - _contentSize.height) / 2.0f;
     
-    // make some changes to it
-    _adHtml = [_adHtml stringByReplacingOccurrencesOfString:@"_WIDTH_" withString:[NSString stringWithFormat:@"%ld", (long)_adSize.width]];
-    _adHtml = [_adHtml stringByReplacingOccurrencesOfString:@"_HEIGHT_" withString:[NSString stringWithFormat:@"%ld", (long)_adSize.height]];
-    _adHtml = [_adHtml stringByReplacingOccurrencesOfString:@"_PARAM_SCALE_" withString:[NSString stringWithFormat:@"%.2f", _scalingFactor]];
+    // update web player frame
+    [self setFrame:result];
     
-    // call the UIWebView "loadHTMLString:baseURL:" method
-    [self loadHTMLString:_adHtml baseURL:NULL];
-}
-
-- (void) updateToFrame:(CGRect)frame {
+    // invert transform
+    _webView.transform = CGAffineTransformInvert(_webTransform);
     
-    // set frame
-    self.frame = frame;
+    // update instance transform
+    _webTransform = CGAffineTransformConcat(CGAffineTransformMakeScale(scaleX, scaleY),
+                                            CGAffineTransformMakeTranslation(diffX, diffY));
     
-    // set scale
-    CGFloat xscale = frame.size.width / _adSize.width;
-    CGFloat yscale = frame.size.height / _adSize.height;
-    _scalingFactor = MIN(xscale, yscale);
-    
-    // call Java Script in order to re-set the frame
-    NSMutableString *script = [[NSMutableString alloc] init];
-    [script appendString:@"viewport = document.querySelector('meta[name=viewport]');"];
-    [script appendFormat:@"viewport.setAttribute('content', 'width=device-width, initial-scale=%.2f, maximum-scale=%.2f, user-scalable=no, target-densitydpi=device-dpi');", _scalingFactor, _scalingFactor];
-    
-    [self stringByEvaluatingJavaScriptFromString:script];
+    // apply new transform
+    _webView.transform = _webTransform;
 }
 
 - (void) setEventHandler:(saWebPlayerDidReceiveEvent) handler {
-    _eventHandler = handler != NULL ? handler : ^(SAWebPlayerEvent event) {};
+    [_webView setEventHandler:handler];
 }
 
 - (void) setClickHandler:(saWebPlayerDidReceiveClick) handler {
-    _clickHandler = handler != NULL ? handler : ^(NSURL *url) {};
+    [_webView setClickHandler:handler];
 }
 
 /**
- * Overridden "webView:shouldStartLoadWithRequest:navigationType" method from
- * the UIWebViewDelegate protocol.
- * Here is where messages from the web view get sent to the main library code
- * and filtered for "click" events.
- * Only clicks are registered and the click handler gets called
- * 
- * @param webView           the current web view that sent the message
- * @param request           the associated network request, as a NSURLRequest 
- *                          object
- * @param navigationType    the type of navigation (which is not always 
- *                          that accurate)
- * @return                  true or false
+ * Method that does the math to transform a rectangle into the bounds of
+ * another rectangle.
+ *
+ * @param sourceFrame   the source frame I want to map to
+ * @param boundingFrame the bounding frame I want the source to be mapped in
+ * @return              the correctly mapped result frame
  */
-- (BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+- (CGRect) map:(CGRect)sourceFrame into:(CGRect)boundingFrame {
     
-    BOOL shouldContinue = true;
+    CGFloat sourceW = sourceFrame.size.width;
+    CGFloat sourceH = sourceFrame.size.height;
+    CGFloat boundingW = boundingFrame.size.width;
+    CGFloat boundingH = boundingFrame.size.height;
     
-    if (navigationType == UIWebViewNavigationTypeLinkClicked){
-        shouldContinue = false;
+    if (sourceW == 1 || sourceW == 0) { sourceW = boundingW; }
+    if (sourceH == 1 || sourceH == 0) { sourceH = boundingH; }
+    
+    CGFloat sourceRatio = sourceW / sourceH;
+    CGFloat boundingRatio = boundingW / boundingH;
+    
+    CGFloat X = 0, Y = 0, W = 0, H = 0;
+    
+    if (sourceRatio > boundingRatio) {
+        W = boundingW;
+        H = W / sourceRatio;
+        X = 0;
+        Y = (boundingH - H) / 2.0f;
     } else {
-        if ([request.URL.absoluteString rangeOfString:@"&redir=" options:NSCaseInsensitiveSearch].location != NSNotFound) {
-            shouldContinue = false;
-        }
-        if ([request.URL.relativeString rangeOfString:@"/v2/click"].location != NSNotFound) {
-            shouldContinue = false;
-        }
+        H = boundingH;
+        W = H * sourceRatio;
+        Y = 0;
+        X = (boundingW - W) / 2.0f;
     }
     
-    // if the request should not continue, call the click handler
-    if (!shouldContinue) {
-        
-        NSURL *url = [request URL];
-        _clickHandler(url);
-        return false;
-    }
-    
-    return true;
-}
-
-/**
- * Overridden "webViewDidStartLoad" method from
- * the UIWebViewDelegate protocol.
- * 
- * @param webView   the current web view that sent the message
- */
-- (void) webViewDidStartLoad:(UIWebView *)webView {
-    // do nothing
-}
-
-/**
- * Overridden "webViewDidFinishLoad" method from the UIWebViewDelegate protocol.
- *
- * @param webView   the current web view that sent the message
- */
-- (void) webViewDidFinishLoad:(UIWebView *)webView {
-    if (!_loadedOnce) {
-        _loadedOnce = true;
-        _eventHandler(Web_Start);
-    }
-}
-
-/**
- * Overridden "webView:didFailLoadWithError:" method from the
- * UIWebViewDelegate protocol.
- *
- * @param webView   the current web view that sent the message
- * @param error     the current error that cause the webview to not load
- */
-- (void) webView:(UIWebView*) webView didFailLoadWithError:(NSError *)error {
-    if (!_loadedOnce) {
-        _loadedOnce = true;
-        _eventHandler(Web_Error);
-    }
-}
-
-/**
- * Overridden "viewForZoomingInScrollView:" method from the
- * UIWebViewDelegate protocol
- *
- * @param scrollView    the current scroll view of the web view
- * return               a scrolled zoomed UIView; or nil in this case
- */
-- (UIView*) viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return nil;
+    return CGRectMake((NSInteger)X, (NSInteger)Y, (NSInteger)W, (NSInteger)H);
 }
 
 @end
