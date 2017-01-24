@@ -52,4 +52,11 @@
  */
 - (void) setClickHandler:(saWebPlayerDidReceiveClick)handler;
 
+/**
+ * Getter for the web view
+ *
+ * @return the current used instance of the web view
+ */
+- (UIWebView*) getWebView;
+
 @end

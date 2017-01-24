@@ -132,4 +132,8 @@
     return CGRectMake((NSInteger)X, (NSInteger)Y, (NSInteger)W, (NSInteger)H);
 }
 
+- (UIWebView*) getWebView {
+    return _webView;
+}
+
 @end
