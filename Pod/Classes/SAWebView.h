@@ -7,13 +7,13 @@
 
 /**
  * WebPlayer event enum, containing two main events:
- *  - Web_Start: happens when the web view content is fully loaded
- *  - Web_Error: happens when something prevents the web view
+ *  - saWeb_Start: happens when the web view content is fully loaded
+ *  - saWeb_Error: happens when something prevents the web view
  *               from properly loading the content
  */
 typedef NS_ENUM(NSInteger, SAWebPlayerEvent) {
-    Web_Start = 0,
-    Web_Error = 1
+    saWeb_Start = 0,
+    saWeb_Error = 1
 };
 
 // callback for handling web view events

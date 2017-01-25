@@ -43,15 +43,15 @@
 
 - (IBAction) resize:(id)sender {
     [_bannerAd setFrame:CGRectMake(0, 50, 320, 240)];
-    [_webPlayer updateToFrame:_bannerAd.frame];
+    [_webPlayer updateParentFrame:_bannerAd.frame];
 }
 - (IBAction)reisze2:(id)sender {
     [_bannerAd setFrame:CGRectMake(0, 50, 120, 300)];
-    [_webPlayer updateToFrame:_bannerAd.frame];
+    [_webPlayer updateParentFrame:_bannerAd.frame];
 }
 - (IBAction)resize3:(id)sender {
     [_bannerAd setFrame:CGRectMake(0, 150, 245, 125)];
-    [_webPlayer updateToFrame:_bannerAd.frame];
+    [_webPlayer updateParentFrame:_bannerAd.frame];
 }
 
 @end

@@ -21,52 +21,32 @@
     // save the content size
     _contentSize = contentSize;
     
-    // do the calcs
-    CGRect contentRect = CGRectMake(0, 0, _contentSize.width, _contentSize.height);
-    CGRect result = [self map:contentRect into:parentRect];
-    CGFloat scaleX = result.size.width / _contentSize.width;
-    CGFloat scaleY = result.size.height / _contentSize.height;
-    CGFloat diffX = (result.size.width - _contentSize.width) / 2.0f;
-    CGFloat diffY = (result.size.height - _contentSize.height) / 2.0f;
+    // make transform identity
+    _webTransform = CGAffineTransformIdentity;
     
-    // init
-    if (self = [super initWithFrame: result]) {
+    if (self = [super init]) {
         
         // clear color
         self.backgroundColor = [UIColor clearColor];
         
-        // init the web view
-        _webView = [[SAWebView alloc] initWithFrame:contentRect];
-        
-        // transform
-        _webTransform = CGAffineTransformConcat(CGAffineTransformMakeScale(scaleX, scaleY),
-                                                CGAffineTransformMakeTranslation(diffX, diffY));
-        _webView.transform = _webTransform;
-        
-        // add subview
+        // create the webview and add it as a subview
+        _webView = [[SAWebView alloc] initWithFrame:CGRectMake(0, 0, _contentSize.width, _contentSize.height)];
         [self addSubview:_webView];
+        
+        // update parent frame
+        [self updateParentFrame:parentRect];
+        
     }
     
     return self;
     
 }
 
-- (void) loadHTML:(NSString*)html {
-    // the base HTML that wraps the content html
-    NSString *baseHtml = @"<html><header><style>html, body, div { margin: 0px; padding: 0px; width: 100%; height: 100%; overflow: hidden; background-color: #efefef; }</style></header><body>_CONTENT_</body></html>";
-    
-    // replace content keyword with actual content
-    baseHtml = [baseHtml stringByReplacingOccurrencesOfString:@"_CONTENT_" withString:html];
-    
-    // lock-and-load
-    [_webView loadHTMLString:baseHtml baseURL:nil];
-}
-
-- (void) updateToFrame:(CGRect) parentRect {
+- (void) updateParentFrame:(CGRect) parentRect {
     
     // do the calcs
-    CGRect adRect = CGRectMake(0, 0, _contentSize.width, _contentSize.height);
-    CGRect result = [self map:adRect into:parentRect];
+    CGRect contentRect = CGRectMake(0, 0, _contentSize.width, _contentSize.height);
+    CGRect result = [self map:contentRect into:parentRect];
     CGFloat scaleX = result.size.width / _contentSize.width;
     CGFloat scaleY = result.size.height / _contentSize.height;
     CGFloat diffX = (result.size.width - _contentSize.width) / 2.0f;
@@ -86,12 +66,27 @@
     _webView.transform = _webTransform;
 }
 
+- (void) loadHTML:(NSString*)html {
+    // the base HTML that wraps the content html
+    NSString *baseHtml = @"<html><header><style>html, body, div { margin: 0px; padding: 0px; width: 100%; height: 100%; overflow: hidden; background-color: #efefef; }</style></header><body>_CONTENT_</body></html>";
+    
+    // replace content keyword with actual content
+    baseHtml = [baseHtml stringByReplacingOccurrencesOfString:@"_CONTENT_" withString:html];
+    
+    // lock-and-load
+    [_webView loadHTMLString:baseHtml baseURL:nil];
+}
+
 - (void) setEventHandler:(saWebPlayerDidReceiveEvent) handler {
     [_webView setEventHandler:handler];
 }
 
 - (void) setClickHandler:(saWebPlayerDidReceiveClick) handler {
     [_webView setClickHandler:handler];
+}
+
+- (UIWebView*) getWebView {
+    return _webView;
 }
 
 /**
@@ -130,10 +125,6 @@
     }
     
     return CGRectMake((NSInteger)X, (NSInteger)Y, (NSInteger)W, (NSInteger)H);
-}
-
-- (UIWebView*) getWebView {
-    return _webView;
 }
 
 @end

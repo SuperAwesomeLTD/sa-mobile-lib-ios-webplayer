@@ -107,7 +107,7 @@
 - (void) webViewDidFinishLoad:(UIWebView *)webView {
     if (!_loadedOnce) {
         _loadedOnce = true;
-        _eventHandler(Web_Start);
+        _eventHandler(saWeb_Start);
     }
 }
 
@@ -121,7 +121,7 @@
 - (void) webView:(UIWebView*) webView didFailLoadWithError:(NSError *)error {
     if (!_loadedOnce) {
         _loadedOnce = true;
-        _eventHandler(Web_Error);
+        _eventHandler(saWeb_Error);
     }
 }
 
