@@ -8,7 +8,7 @@
 @interface SAWebView () <UIScrollViewDelegate>
 
 // param that says the web view was once loaded
-@property (nonatomic, assign) BOOL                         loadedOnce;
+@property (nonatomic, assign) BOOL                         finishedLoading;
 
 // strong references to the click and event handlers
 @property (nonatomic, strong) saWebPlayerDidReceiveEvent   eventHandler;
@@ -27,7 +27,7 @@
 - (id) initWithFrame:(CGRect)frame {
     
     if (self = [super initWithFrame:frame]) {
-        _loadedOnce = false;
+        _finishedLoading = false;
         self.delegate = self;
         self.scrollView.delegate = self;
         self.scrollView.scrollEnabled = NO;
@@ -65,27 +65,33 @@
  */
 - (BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
-    BOOL shouldContinue = true;
     
-    if (navigationType == UIWebViewNavigationTypeLinkClicked){
-        shouldContinue = false;
-    } else {
-        if ([request.URL.absoluteString rangeOfString:@"&redir=" options:NSCaseInsensitiveSearch].location != NSNotFound) {
-            shouldContinue = false;
-        }
-        if ([request.URL.relativeString rangeOfString:@"/v2/click"].location != NSNotFound) {
-            shouldContinue = false;
-        }
-    }
-    
-    // if the request should not continue, call the click handler
-    if (!shouldContinue) {
+    if (_finishedLoading) {
         
+        // get the request url
         NSURL *url = [request URL];
+        
+        // get the url as a string
+        NSString *urlStr = [url absoluteString];
+        
+        // check to see if the URL has a redirect, and take only the redirect
+        NSRange redirLoc = [urlStr rangeOfString:@"&redir="];
+        if (redirLoc.location != NSNotFound) {
+            NSInteger strStart = redirLoc.location + redirLoc.length;
+            NSString *redir = [urlStr substringFromIndex:strStart];
+            
+            // update the new url
+            url = [NSURL URLWithString:redir];
+        }
+        
+        // send a callback with the url
         _clickHandler(url);
+        
+        // don't propagate this
         return false;
     }
     
+    // else just return true
     return true;
 }
 
@@ -105,8 +111,8 @@
  * @param webView   the current web view that sent the message
  */
 - (void) webViewDidFinishLoad:(UIWebView *)webView {
-    if (!_loadedOnce) {
-        _loadedOnce = true;
+    if (!_finishedLoading) {
+        _finishedLoading = true;
         _eventHandler(saWeb_Start);
     }
 }
@@ -119,8 +125,8 @@
  * @param error     the current error that cause the webview to not load
  */
 - (void) webView:(UIWebView*) webView didFailLoadWithError:(NSError *)error {
-    if (!_loadedOnce) {
-        _loadedOnce = true;
+    if (!_finishedLoading) {
+        _finishedLoading = true;
         _eventHandler(saWeb_Error);
     }
 }
