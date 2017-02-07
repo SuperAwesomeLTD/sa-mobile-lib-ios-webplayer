@@ -74,6 +74,9 @@
         // get the url as a string
         NSString *urlStr = [url absoluteString];
         
+        // protect against about blanks
+        if ([urlStr rangeOfString:@"about:blank"].location != NSNotFound) return true;
+        
         // check to see if the URL has a redirect, and take only the redirect
         NSRange redirLoc = [urlStr rangeOfString:@"&redir="];
         if (redirLoc.location != NSNotFound) {
