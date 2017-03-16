@@ -23,6 +23,7 @@
     NSString *img = @"<img src='https://ads.superawesome.tv/v2/demo_images/320x50.jpg'/>";
     NSString *rich = @"<iframe src='https://s3-eu-west-1.amazonaws.com/sb-ads-uploads/rich-media/tNmFLJ7kGQWBbyORkIqTJ4oqykaGPU9w/rich-media/index.html'/>";
     NSString *tag = @"<A HREF=\"[click]https://ad.doubleclick.net/ddm/jump/N304202.1915243SUPERAWESOME.TV/B10773905.144625054;sz=300x250;ord=[timestamp]?\"><IMG SRC=\"https://ad.doubleclick.net/ddm/ad/N304202.1915243SUPERAWESOME.TV/B10773905.144625054;sz=300x250;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=?\" BORDER=0 WIDTH=300 HEIGHT=250 ALT=\"Advertisement\"></A>";
+    NSString *rich2 = @"<iframe src='https://s3-eu-west-1.amazonaws.com/sb-ads-uploads/rich-media/H1KI1dTnKhSPLDAbLtpN7zgqTOO9qNsO/Ooshies/index.html'/>";
     
     _bannerAd = [[UIView alloc] initWithFrame:CGRectMake(0, 50, 300, 170)];
     _bannerAd.backgroundColor = [UIColor lightGrayColor];

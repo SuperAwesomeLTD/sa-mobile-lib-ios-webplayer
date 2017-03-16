@@ -68,7 +68,7 @@
 
 - (void) loadHTML:(NSString*)html {
     // the base HTML that wraps the content html
-    NSString *baseHtml = @"<html><header><style>html, body, div { margin: 0px; padding: 0px; width: 100%; height: 100%; overflow: hidden; background-color: #efefef; }</style></header><body>_CONTENT_</body></html>";
+    NSString *baseHtml = @"<html><header><style>html, body, div { margin: 0px; padding: 0px; background-color: #efefef; }</style></header><body>_CONTENT_</body></html>";
     
     // replace content keyword with actual content
     baseHtml = [baseHtml stringByReplacingOccurrencesOfString:@"_CONTENT_" withString:html];

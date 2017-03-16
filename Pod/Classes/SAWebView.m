@@ -30,7 +30,7 @@
         _finishedLoading = false;
         self.delegate = self;
         self.scrollView.delegate = self;
-        self.scrollView.scrollEnabled = NO;
+        self.scrollView.scrollEnabled = YES;
         self.scrollView.bounces = NO;
         self.allowsInlineMediaPlayback = NO;
         self.mediaPlaybackRequiresUserAction = YES;
@@ -134,15 +134,15 @@
     }
 }
 
-/**
- * Overridden "viewForZoomingInScrollView:" method from the
- * UIWebViewDelegate protocol
- *
- * @param scrollView    the current scroll view of the web view
- * return               a scrolled zoomed UIView; or nil in this case
- */
-- (UIView*) viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return nil;
-}
+///**
+// * Overridden "viewForZoomingInScrollView:" method from the
+// * UIWebViewDelegate protocol
+// *
+// * @param scrollView    the current scroll view of the web view
+// * return               a scrolled zoomed UIView; or nil in this case
+// */
+//- (UIView*) viewForZoomingInScrollView:(UIScrollView *)scrollView {
+//    return nil;
+//}
 
 @end
