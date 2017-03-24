@@ -34,7 +34,7 @@
  *
  * @param html a valid HTML string
  */
-- (void) loadHTML:(NSString*)html;
+- (void) loadHTML:(NSString*)html witBase:(NSString*)base;
 
 /*
  * Setter for the event handler

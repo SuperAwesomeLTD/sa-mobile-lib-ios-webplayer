@@ -29,13 +29,13 @@
     _bannerAd.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview: _bannerAd];
     
-    _webPlayer = [[SAWebPlayer alloc] initWithContentSize:CGSizeMake(300, 250)
+    _webPlayer = [[SAWebPlayer alloc] initWithContentSize:CGSizeMake(320, 480)
                                            andParentFrame:_bannerAd.frame];
     [_bannerAd addSubview:_webPlayer];
     [_webPlayer setClickHandler:^(NSURL *url) {
         NSLog(@"Clicked on %@", [url absoluteString]);
     }];
-    [_webPlayer loadHTML:tag];
+    [_webPlayer loadHTML:rich2 witBase:@"https://s3-eu-west-1.amazonaws.com"];
 }
 
 - (void) didReceiveMemoryWarning {
