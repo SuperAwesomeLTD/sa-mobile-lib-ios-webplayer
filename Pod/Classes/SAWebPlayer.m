@@ -89,14 +89,6 @@
     return _webView;
 }
 
-/**
- * Method that does the math to transform a rectangle into the bounds of
- * another rectangle.
- *
- * @param sourceFrame   the source frame I want to map to
- * @param boundingFrame the bounding frame I want the source to be mapped in
- * @return              the correctly mapped result frame
- */
 - (CGRect) map:(CGRect)sourceFrame into:(CGRect)boundingFrame {
     
     CGFloat sourceW = sourceFrame.size.width;

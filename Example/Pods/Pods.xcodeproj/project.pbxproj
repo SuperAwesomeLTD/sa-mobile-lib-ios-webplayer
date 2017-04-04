@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B1019CA1E928E45002E48E8 /* SAMRAIDCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B1019C81E928E45002E48E8 /* SAMRAIDCommand.h */; };
+		1B1019CB1E928E45002E48E8 /* SAMRAIDCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1019C91E928E45002E48E8 /* SAMRAIDCommand.m */; };
+		1B1019CE1E929D78002E48E8 /* SAMRAID.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B1019CC1E929D78002E48E8 /* SAMRAID.h */; };
+		1B1019CF1E929D78002E48E8 /* SAMRAID.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1019CD1E929D78002E48E8 /* SAMRAID.m */; };
 		2730942B71F65F672F23C772CC792F40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		2E7D91C4F13432F147ACCBACF7400A38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		3F30FA74199D131D881ABFBEC1904350 /* SAWebPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB73E0AC7C4BA29AB0461839001ADA5C /* SAWebPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,20 +34,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B1019C81E928E45002E48E8 /* SAMRAIDCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMRAIDCommand.h; sourceTree = "<group>"; };
+		1B1019C91E928E45002E48E8 /* SAMRAIDCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMRAIDCommand.m; sourceTree = "<group>"; };
+		1B1019CC1E929D78002E48E8 /* SAMRAID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMRAID.h; sourceTree = "<group>"; };
+		1B1019CD1E929D78002E48E8 /* SAMRAID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMRAID.m; sourceTree = "<group>"; };
 		245577FD38AEB9D2C490DFDA1B7ADFF8 /* SAWebPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SAWebPlayer.m; sourceTree = "<group>"; };
 		2801F6799A800E420FA644C41D0C5E75 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		2A4CA41E29F90DF6F0CF965F8A663F9E /* SAWebPlayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SAWebPlayer-prefix.pch"; sourceTree = "<group>"; };
 		3131978155DEFE437155FBD629E58D63 /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		3C77A3971DD197084DC2399B76198AF4 /* Pods-SAWebPlayer_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SAWebPlayer_Example-dummy.m"; sourceTree = "<group>"; };
-		3E08C4A4D65DDDB415E2F80FBE4DAA37 /* libSAWebPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSAWebPlayer.a; path = libSAWebPlayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E08C4A4D65DDDB415E2F80FBE4DAA37 /* libSAWebPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSAWebPlayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ABA5A0968BBC80390877C3EAFFE5E7B /* SAWebPlayer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SAWebPlayer.xcconfig; sourceTree = "<group>"; };
 		54BE0C7BCEA5FED8C27ADCF1153FE28E /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
 		64F481EAFA2D848B0C1BECCB73BA3CA9 /* SAWebView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SAWebView.m; sourceTree = "<group>"; };
-		654A5A0EC6B0398CE7084581CE634212 /* libPods-SAWebPlayer_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-SAWebPlayer_Example.a"; path = "libPods-SAWebPlayer_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		654A5A0EC6B0398CE7084581CE634212 /* libPods-SAWebPlayer_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SAWebPlayer_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E4376EB754EE182BDCDEEE85F57C99 /* SAWebPlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SAWebPlayer-dummy.m"; sourceTree = "<group>"; };
 		8C82FD0E649B7C861CBC97B911635255 /* Pods-SAWebPlayer_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SAWebPlayer_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		904E2667D2EED8C4911B598A0BBCCBF6 /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A86B04DD3012B1A7F136D2F2CF8D6EAE /* Pods-SAWebPlayer_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SAWebPlayer_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		AB73E0AC7C4BA29AB0461839001ADA5C /* SAWebPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SAWebPlayer.h; sourceTree = "<group>"; };
 		AD518DD59EAD3499E9AD11A9108E2F63 /* SAWebView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SAWebView.h; sourceTree = "<group>"; };
@@ -55,7 +63,7 @@
 		D4F22EFC31756BD3DCAD99EB0B58A82D /* Pods-SAWebPlayer_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SAWebPlayer_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		D7AA4EB9E673006A48AE68D8ADB7D8AB /* Pods-SAWebPlayer_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SAWebPlayer_Example.release.xcconfig"; sourceTree = "<group>"; };
 		FA238F16BCAD4AFD229961E140AE165E /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
-		FB2AB2EA9EC1678544742366B4EE8429 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Tests.a"; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2AB2EA9EC1678544742366B4EE8429 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,17 @@
 			path = "Target Support Files/Pods-Tests";
 			sourceTree = "<group>";
 		};
+		1B1019C71E928E2D002E48E8 /* MRAID */ = {
+			isa = PBXGroup;
+			children = (
+				1B1019C81E928E45002E48E8 /* SAMRAIDCommand.h */,
+				1B1019C91E928E45002E48E8 /* SAMRAIDCommand.m */,
+				1B1019CC1E929D78002E48E8 /* SAMRAID.h */,
+				1B1019CD1E929D78002E48E8 /* SAMRAID.m */,
+			);
+			name = MRAID;
+			sourceTree = "<group>";
+		};
 		289AF39C0F8255CF5FC5890FCF608BE9 /* Pods-SAWebPlayer_Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,12 +148,12 @@
 		4EDD66C8CC6BF6435475A90DE4653A4F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1B1019C71E928E2D002E48E8 /* MRAID */,
 				AB73E0AC7C4BA29AB0461839001ADA5C /* SAWebPlayer.h */,
 				245577FD38AEB9D2C490DFDA1B7ADFF8 /* SAWebPlayer.m */,
 				AD518DD59EAD3499E9AD11A9108E2F63 /* SAWebView.h */,
 				64F481EAFA2D848B0C1BECCB73BA3CA9 /* SAWebView.m */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -208,7 +227,6 @@
 			children = (
 				4EDD66C8CC6BF6435475A90DE4653A4F /* Classes */,
 			);
-			name = Pod;
 			path = Pod;
 			sourceTree = "<group>";
 		};
@@ -219,8 +237,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B1019CE1E929D78002E48E8 /* SAMRAID.h in Headers */,
 				3F30FA74199D131D881ABFBEC1904350 /* SAWebPlayer.h in Headers */,
 				9CA4FB5F35614F308E4ECB072709BE8B /* SAWebView.h in Headers */,
+				1B1019CA1E928E45002E48E8 /* SAMRAIDCommand.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +332,9 @@
 			files = (
 				B804D93FC8AF18A8D384013FB189E3B7 /* SAWebPlayer-dummy.m in Sources */,
 				960702AF5DE8468AF9A291B1A5B8F21F /* SAWebPlayer.m in Sources */,
+				1B1019CF1E929D78002E48E8 /* SAMRAID.m in Sources */,
 				5691F56EF38AFE1AE4C0DA64C4E96110 /* SAWebView.m in Sources */,
+				1B1019CB1E928E45002E48E8 /* SAMRAIDCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
