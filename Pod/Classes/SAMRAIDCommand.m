@@ -13,7 +13,7 @@
 
 - (void) getQuery: (NSString*) query {
     
-    NSArray<NSString*> *parts = [[query stringByReplacingOccurrencesOfString:@"mraid://" withString:@""] componentsSeparatedByString:@"\\"];
+    NSArray<NSString*> *parts = [[query stringByReplacingOccurrencesOfString:@"mraid://" withString:@""] componentsSeparatedByString:@"?"];
     
     if (parts.count >= 1) {
         
@@ -26,7 +26,7 @@
             NSString* paramStr = parts[1];
             NSArray<NSString*> *pairs = [paramStr componentsSeparatedByString:@"&"];
             
-            NSMutableDictionary<NSString*, NSString*> *lparams = [@[] mutableCopy];
+            NSMutableDictionary *lparams = [@{} mutableCopy];
             
             for (NSString* pair in pairs) {
                 NSArray<NSString*> *kv = [pair componentsSeparatedByString:@"="];

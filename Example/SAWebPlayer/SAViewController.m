@@ -23,23 +23,6 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    
-//    NSString *img = @"<img src='https://ads.superawesome.tv/v2/demo_images/320x50.jpg'/>";
-//    NSString *rich = @"<iframe src='https://s3-eu-west-1.amazonaws.com/sb-ads-uploads/rich-media/tNmFLJ7kGQWBbyORkIqTJ4oqykaGPU9w/rich-media/index.html'/>";
-//    NSString *tag = @"<A HREF=\"[click]https://ad.doubleclick.net/ddm/jump/N304202.1915243SUPERAWESOME.TV/B10773905.144625054;sz=300x250;ord=[timestamp]?\"><IMG SRC=\"https://ad.doubleclick.net/ddm/ad/N304202.1915243SUPERAWESOME.TV/B10773905.144625054;sz=300x250;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=?\" BORDER=0 WIDTH=300 HEIGHT=250 ALT=\"Advertisement\"></A>";
-//    NSString *rich2 = @"<iframe src='https://s3-eu-west-1.amazonaws.com/sb-ads-uploads/rich-media/H1KI1dTnKhSPLDAbLtpN7zgqTOO9qNsO/Ooshies/index.html'/>";
-//    
-//    _bannerAd = [[UIView alloc] initWithFrame:CGRectMake(0, 50, 300, 170)];
-//    _bannerAd.backgroundColor = [UIColor lightGrayColor];
-//    [self.view addSubview: _bannerAd];
-//    
-//    _webPlayer = [[SAWebPlayer alloc] initWithContentSize:CGSizeMake(320, 480)
-//                                           andParentFrame:_bannerAd.frame];
-//    [_bannerAd addSubview:_webPlayer];
-//    [_webPlayer setClickHandler:^(NSURL *url) {
-//        NSLog(@"Clicked on %@", [url absoluteString]);
-//    }];
-//    [_webPlayer loadHTML:rich2 witBase:@"https://s3-eu-west-1.amazonaws.com"];
 }
 
 - (void) didReceiveMemoryWarning {
@@ -143,17 +126,77 @@
 
 - (IBAction)mraid1:(id)sender {
     
+    // stop
+    if (_webPlayer2 != nil) {
+        [_webPlayer2 removeFromSuperview];
+        _webPlayer2 = nil;
+    }
+    
+    // recreate
+    _webPlayer2 = [[SAWebPlayer alloc] initWithContentSize:CGSizeMake(320, 50) andParentFrame:_adSupport2.frame];
+    [_adSupport2 addSubview:_webPlayer2];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"mraid1" ofType:@"txt"];
+    NSString *ad = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    
+    [_webPlayer2 loadHTML:ad witBase:nil];
+    
 }
 
 - (IBAction)mraid2:(id)sender {
     
+    // stop
+    if (_webPlayer2 != nil) {
+        [_webPlayer2 removeFromSuperview];
+        _webPlayer2 = nil;
+    }
+    
+    // recreate
+    _webPlayer2 = [[SAWebPlayer alloc] initWithContentSize:CGSizeMake(320, 50) andParentFrame:_adSupport2.frame];
+    [_adSupport2 addSubview:_webPlayer2];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"mraid2" ofType:@"txt"];
+    NSString *ad = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    
+    [_webPlayer2 loadHTML:ad witBase:nil];
+    
 }
 
 - (IBAction)mraid3:(id)sender {
+ 
+    // stop
+    if (_webPlayer2 != nil) {
+        [_webPlayer2 removeFromSuperview];
+        _webPlayer2 = nil;
+    }
+    
+    // recreate
+    _webPlayer2 = [[SAWebPlayer alloc] initWithContentSize:CGSizeMake(320, 50) andParentFrame:_adSupport2.frame];
+    [_adSupport2 addSubview:_webPlayer2];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"mraid3" ofType:@"txt"];
+    NSString *ad = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    
+    [_webPlayer2 loadHTML:ad witBase:nil];
     
 }
 
 - (IBAction)mraid4:(id)sender {
+    
+    // stop
+    if (_webPlayer2 != nil) {
+        [_webPlayer2 removeFromSuperview];
+        _webPlayer2 = nil;
+    }
+    
+    // recreate
+    _webPlayer2 = [[SAWebPlayer alloc] initWithContentSize:CGSizeMake(320, 50) andParentFrame:_adSupport2.frame];
+    [_adSupport2 addSubview:_webPlayer2];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"mraid4" ofType:@"txt"];
+    NSString *ad = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    
+    [_webPlayer2 loadHTML:ad witBase:nil];
     
 }
 @end

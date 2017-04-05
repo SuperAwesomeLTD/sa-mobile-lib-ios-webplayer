@@ -11,6 +11,9 @@
  */
 @interface SAWebPlayer : UIView
 
+@property (nonatomic, assign) BOOL isExpanded;
+@property (nonatomic, assign) BOOL isResized;
+
 /**
  * Web Player init method with an ad size and a parent rect
  *

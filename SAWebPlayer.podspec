@@ -11,5 +11,6 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/SuperAwesomeLTD/sa-mobile-lib-ios-webplayer.git", :tag => "1.1.9" }
   s.platform     = :ios, '7.0'
   s.requires_arc = true
+  s.dependency 'SANetworking', '0.2.9'
   s.source_files = 'Pod/Classes/*'
 end

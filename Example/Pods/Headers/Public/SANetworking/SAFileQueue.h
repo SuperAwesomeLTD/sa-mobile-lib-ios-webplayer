@@ -1,0 +1,1 @@
+../../../SANetworking/Pod/Classes/File/SAFileQueue.h

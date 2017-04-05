@@ -28,7 +28,7 @@
     
     if (self = [super initWithFrame:frame]) {
         _finishedLoading = false;
-        self.delegate = self;
+        // self.delegate = self;
         self.scrollView.delegate = self;
         self.scrollView.scrollEnabled = YES;
         self.scrollView.bounces = NO;
@@ -65,6 +65,7 @@
  */
 - (BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
+    NSLog(@"Req %@", [request URL]);
     
     if (_finishedLoading) {
         
@@ -98,6 +99,8 @@
     return true;
 }
 
+
+
 /**
  * Overridden "webViewDidStartLoad" method from
  * the UIWebViewDelegate protocol.
@@ -105,6 +108,7 @@
  * @param webView   the current web view that sent the message
  */
 - (void) webViewDidStartLoad:(UIWebView *)webView {
+    NSLog(@"START LOAD");
     // do nothing
 }
 

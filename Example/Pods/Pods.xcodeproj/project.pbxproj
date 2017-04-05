@@ -7,74 +7,106 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B1019CA1E928E45002E48E8 /* SAMRAIDCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B1019C81E928E45002E48E8 /* SAMRAIDCommand.h */; };
-		1B1019CB1E928E45002E48E8 /* SAMRAIDCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1019C91E928E45002E48E8 /* SAMRAIDCommand.m */; };
-		1B1019CE1E929D78002E48E8 /* SAMRAID.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B1019CC1E929D78002E48E8 /* SAMRAID.h */; };
-		1B1019CF1E929D78002E48E8 /* SAMRAID.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1019CD1E929D78002E48E8 /* SAMRAID.m */; };
-		2730942B71F65F672F23C772CC792F40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		05C54EDC163227900A57D83B0FF12F77 /* SAFileQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4BE5FF3B525595D1ED6A2DC507E948 /* SAFileQueue.m */; };
+		1248CFC091038E95D6A35FDC15BFB6DD /* SAWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DFEDB53A40409DC76B2EBB08C9FD3CC /* SAWebView.m */; };
+		1B8A6E11462523A3D5A53B279F8FAFCC /* SANetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1FD58CE5026D4BCF67E42E237B2415 /* SANetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C551B5BD0F58AB22B14866EF4064CDC /* SAFileListDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 68F3E2747190F6E2147825B3650F7E7C /* SAFileListDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2E7D91C4F13432F147ACCBACF7400A38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		3F30FA74199D131D881ABFBEC1904350 /* SAWebPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB73E0AC7C4BA29AB0461839001ADA5C /* SAWebPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5691F56EF38AFE1AE4C0DA64C4E96110 /* SAWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F481EAFA2D848B0C1BECCB73BA3CA9 /* SAWebView.m */; };
+		3F61E1C5FEB1D9C1DF93036BFD9F195C /* SAMRAID.m in Sources */ = {isa = PBXBuildFile; fileRef = 92759CACD4ABA65A9609C8A6455EA9AF /* SAMRAID.m */; };
+		6547AD5B3B6A5C788668214F95DBD548 /* SAWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DE5895DECFFB71FA102AE00321FC8FF /* SAWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69F1605902ED64D1BD903BB7568D7383 /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BE0C7BCEA5FED8C27ADCF1153FE28E /* Pods-Tests-dummy.m */; };
-		7CCD00746D79A1E704D9FBF6D8FF8E34 /* Pods-SAWebPlayer_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77A3971DD197084DC2399B76198AF4 /* Pods-SAWebPlayer_Example-dummy.m */; };
-		8CB6C0C675A8F29E4107A3EB781F8859 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		960702AF5DE8468AF9A291B1A5B8F21F /* SAWebPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 245577FD38AEB9D2C490DFDA1B7ADFF8 /* SAWebPlayer.m */; };
-		9CA4FB5F35614F308E4ECB072709BE8B /* SAWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = AD518DD59EAD3499E9AD11A9108E2F63 /* SAWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B804D93FC8AF18A8D384013FB189E3B7 /* SAWebPlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E4376EB754EE182BDCDEEE85F57C99 /* SAWebPlayer-dummy.m */; };
+		735076B612F711827A2AFEC52BA89CE0 /* SAWebPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F3953C274736BC01F204DEC0E265E499 /* SAWebPlayer.m */; };
+		799902A1243E38E3261160AEE08083B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		8048297AD2153828A10CDCC17A2B5FDD /* SAFileDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 52CBEC0382BB6AA4426047DDF4D37776 /* SAFileDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80C38F4EBADEC2673FBD4A6C7C666CDE /* SAMRAID.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E5F7B5475FADFE5155A7D42E93AFDB5 /* SAMRAID.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B643046E1641C9569E9B2DF76C06D43 /* SAWebPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = D206C3E00B63114CF23593B82C10D0D7 /* SAWebPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A116FBB36C6C0CFD45CD54B2F9EB318F /* Pods-SAWebPlayer_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77A3971DD197084DC2399B76198AF4 /* Pods-SAWebPlayer_Example-dummy.m */; };
+		A84293F3CF5433B657B95106C50B45ED /* SAMRAIDCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 15BE2327415D46C6618FB0EAAE14E6F3 /* SAMRAIDCommand.m */; };
+		A9FE1D080FA9CB6261317F04B7F5D793 /* SANetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2AAFC4B6E1AA45E758E8318FB6FA2 /* SANetwork.m */; };
+		BBB5CA23C9366CEFDF9F7C2382EDB3B5 /* SAMRAIDCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = A988A6E517FC4082AE57C73029DB8A7D /* SAMRAIDCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BC0EEF684A00373F59BB4772EC5F2272 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		BFA9C8D94E0D12FEC9437B2B540273E5 /* SAFileItem.h in Headers */ = {isa = PBXBuildFile; fileRef = ADAE8887DA63793B153408EE36CEFEEA /* SAFileItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA549230537F6F2CB66FC0F4B1B7B07B /* SANetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE74BD6405C79ECFF8E54797A2B0007E /* SANetworking-dummy.m */; };
+		D8BC166E97A84C71CFD8D55734454748 /* SAFileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA2C5F39A93559A226D1682557AB8CC /* SAFileDownloader.m */; };
+		DB31176BCB8B76E05C1B14446442D6AF /* SAFileItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9441BC7D8FEA843EA8AF7BF4233B0E /* SAFileItem.m */; };
+		DD55A0F112DC91ACD4FB03EF11287643 /* SAWebPlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E4376EB754EE182BDCDEEE85F57C99 /* SAWebPlayer-dummy.m */; };
+		E7952396707E672076A539702FA32967 /* SAFileListDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 307ECB0FD366D0EFCC564BB718E7D95B /* SAFileListDownloader.m */; };
+		F92AD44CE9151E6EF5C7B65D3DB0DC2F /* SAFileQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = AB8DE1BC432607283303872612370551 /* SAFileQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD8D3083403CD18C144B653888E26F6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		852E94559DC88BBA303DA3AA49EB59DF /* PBXContainerItemProxy */ = {
+		42DD2A1C9432DAFC6E0A690B01A876BE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C79B5E459B3DF0F4B0BD65293356C9CD;
+			remoteGlobalIDString = 7DC7DE2EA09FA8F8F9E576B019D47EA4;
+			remoteInfo = SANetworking;
+		};
+		74829AE77C51C0EFD58498AAB7099C56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B5A382E6078D321D68EF088CBD8B6EB;
 			remoteInfo = SAWebPlayer;
+		};
+		E2D35B03B36432271D0191E4AD8CC7DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7DC7DE2EA09FA8F8F9E576B019D47EA4;
+			remoteInfo = SANetworking;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B1019C81E928E45002E48E8 /* SAMRAIDCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMRAIDCommand.h; sourceTree = "<group>"; };
-		1B1019C91E928E45002E48E8 /* SAMRAIDCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMRAIDCommand.m; sourceTree = "<group>"; };
-		1B1019CC1E929D78002E48E8 /* SAMRAID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMRAID.h; sourceTree = "<group>"; };
-		1B1019CD1E929D78002E48E8 /* SAMRAID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMRAID.m; sourceTree = "<group>"; };
-		245577FD38AEB9D2C490DFDA1B7ADFF8 /* SAWebPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SAWebPlayer.m; sourceTree = "<group>"; };
+		15BE2327415D46C6618FB0EAAE14E6F3 /* SAMRAIDCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SAMRAIDCommand.m; sourceTree = "<group>"; };
+		1FC0C095A996919CF2E174FAEE7FE1EC /* libPods-SAWebPlayer_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-SAWebPlayer_Example.a"; path = "libPods-SAWebPlayer_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		20915DD21944460B3026B17660AF86AF /* libSANetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSANetworking.a; path = libSANetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2801F6799A800E420FA644C41D0C5E75 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		2A4CA41E29F90DF6F0CF965F8A663F9E /* SAWebPlayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SAWebPlayer-prefix.pch"; sourceTree = "<group>"; };
+		2DFEDB53A40409DC76B2EBB08C9FD3CC /* SAWebView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SAWebView.m; sourceTree = "<group>"; };
+		307ECB0FD366D0EFCC564BB718E7D95B /* SAFileListDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SAFileListDownloader.m; path = Pod/Classes/FileList/SAFileListDownloader.m; sourceTree = "<group>"; };
 		3131978155DEFE437155FBD629E58D63 /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		3A9441BC7D8FEA843EA8AF7BF4233B0E /* SAFileItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SAFileItem.m; path = Pod/Classes/File/SAFileItem.m; sourceTree = "<group>"; };
 		3C77A3971DD197084DC2399B76198AF4 /* Pods-SAWebPlayer_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SAWebPlayer_Example-dummy.m"; sourceTree = "<group>"; };
-		3E08C4A4D65DDDB415E2F80FBE4DAA37 /* libSAWebPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSAWebPlayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E5F7B5475FADFE5155A7D42E93AFDB5 /* SAMRAID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SAMRAID.h; sourceTree = "<group>"; };
+		3F4BE5FF3B525595D1ED6A2DC507E948 /* SAFileQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SAFileQueue.m; path = Pod/Classes/File/SAFileQueue.m; sourceTree = "<group>"; };
 		4ABA5A0968BBC80390877C3EAFFE5E7B /* SAWebPlayer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SAWebPlayer.xcconfig; sourceTree = "<group>"; };
+		52CBEC0382BB6AA4426047DDF4D37776 /* SAFileDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SAFileDownloader.h; path = Pod/Classes/File/SAFileDownloader.h; sourceTree = "<group>"; };
 		54BE0C7BCEA5FED8C27ADCF1153FE28E /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
-		64F481EAFA2D848B0C1BECCB73BA3CA9 /* SAWebView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SAWebView.m; sourceTree = "<group>"; };
-		654A5A0EC6B0398CE7084581CE634212 /* libPods-SAWebPlayer_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SAWebPlayer_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E4376EB754EE182BDCDEEE85F57C99 /* SAWebPlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SAWebPlayer-dummy.m"; sourceTree = "<group>"; };
+		68F1AFC7BE04AE1684137DF7156B8255 /* SANetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SANetworking.xcconfig; sourceTree = "<group>"; };
+		68F3E2747190F6E2147825B3650F7E7C /* SAFileListDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SAFileListDownloader.h; path = Pod/Classes/FileList/SAFileListDownloader.h; sourceTree = "<group>"; };
+		7BA2AAFC4B6E1AA45E758E8318FB6FA2 /* SANetwork.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SANetwork.m; path = Pod/Classes/Request/SANetwork.m; sourceTree = "<group>"; };
+		7BA2C5F39A93559A226D1682557AB8CC /* SAFileDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SAFileDownloader.m; path = Pod/Classes/File/SAFileDownloader.m; sourceTree = "<group>"; };
 		8C82FD0E649B7C861CBC97B911635255 /* Pods-SAWebPlayer_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SAWebPlayer_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		904E2667D2EED8C4911B598A0BBCCBF6 /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		92759CACD4ABA65A9609C8A6455EA9AF /* SAMRAID.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SAMRAID.m; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9A1FD58CE5026D4BCF67E42E237B2415 /* SANetwork.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SANetwork.h; path = Pod/Classes/Request/SANetwork.h; sourceTree = "<group>"; };
+		9DE5895DECFFB71FA102AE00321FC8FF /* SAWebView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SAWebView.h; sourceTree = "<group>"; };
+		A3A7AFB4BE69CFD7EBEE89EED8A40633 /* libSAWebPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSAWebPlayer.a; path = libSAWebPlayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86B04DD3012B1A7F136D2F2CF8D6EAE /* Pods-SAWebPlayer_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SAWebPlayer_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		AB73E0AC7C4BA29AB0461839001ADA5C /* SAWebPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SAWebPlayer.h; sourceTree = "<group>"; };
-		AD518DD59EAD3499E9AD11A9108E2F63 /* SAWebView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SAWebView.h; sourceTree = "<group>"; };
+		A988A6E517FC4082AE57C73029DB8A7D /* SAMRAIDCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SAMRAIDCommand.h; sourceTree = "<group>"; };
+		AB8DE1BC432607283303872612370551 /* SAFileQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SAFileQueue.h; path = Pod/Classes/File/SAFileQueue.h; sourceTree = "<group>"; };
+		ADAE8887DA63793B153408EE36CEFEEA /* SAFileItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SAFileItem.h; path = Pod/Classes/File/SAFileItem.h; sourceTree = "<group>"; };
 		AE05C98A8D0A3AF0734596E53624A9B9 /* Pods-SAWebPlayer_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SAWebPlayer_Example-frameworks.sh"; sourceTree = "<group>"; };
+		BE74BD6405C79ECFF8E54797A2B0007E /* SANetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SANetworking-dummy.m"; sourceTree = "<group>"; };
 		C20EF27867206222302B0178106F37C1 /* Pods-Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-frameworks.sh"; sourceTree = "<group>"; };
 		C5322D13B22C61501B3EC8F407A0E5EA /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		CA64468334393DE9F1152F7119D19EC8 /* Pods-SAWebPlayer_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SAWebPlayer_Example-resources.sh"; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D206C3E00B63114CF23593B82C10D0D7 /* SAWebPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SAWebPlayer.h; sourceTree = "<group>"; };
 		D4F22EFC31756BD3DCAD99EB0B58A82D /* Pods-SAWebPlayer_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SAWebPlayer_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		D7AA4EB9E673006A48AE68D8ADB7D8AB /* Pods-SAWebPlayer_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SAWebPlayer_Example.release.xcconfig"; sourceTree = "<group>"; };
+		E2535F5CF323B2B7219A919B13E2108E /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Tests.a"; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3383744C56EE055741260E2FF691802 /* SANetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SANetworking-prefix.pch"; sourceTree = "<group>"; };
+		F3953C274736BC01F204DEC0E265E499 /* SAWebPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SAWebPlayer.m; sourceTree = "<group>"; };
 		FA238F16BCAD4AFD229961E140AE165E /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
-		FB2AB2EA9EC1678544742366B4EE8429 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0D8435593F83C2933BD8800BDB15AFE9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8CB6C0C675A8F29E4107A3EB781F8859 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1608131813827F0BA111B5754AB09996 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -83,11 +115,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F4F6A759E6B08D59AB2687CB66D98650 /* Frameworks */ = {
+		8597651E1AECDED6C4FE2BD13F504666 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2730942B71F65F672F23C772CC792F40 /* Foundation.framework in Frameworks */,
+				FD8D3083403CD18C144B653888E26F6A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C727F204863572870C16A720C0E2813F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				799902A1243E38E3261160AEE08083B5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA135D45055DE8ECED8EBC89DA5CBCFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC0EEF684A00373F59BB4772EC5F2272 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,17 +157,6 @@
 			path = "Target Support Files/Pods-Tests";
 			sourceTree = "<group>";
 		};
-		1B1019C71E928E2D002E48E8 /* MRAID */ = {
-			isa = PBXGroup;
-			children = (
-				1B1019C81E928E45002E48E8 /* SAMRAIDCommand.h */,
-				1B1019C91E928E45002E48E8 /* SAMRAIDCommand.m */,
-				1B1019CC1E929D78002E48E8 /* SAMRAID.h */,
-				1B1019CD1E929D78002E48E8 /* SAMRAID.m */,
-			);
-			name = MRAID;
-			sourceTree = "<group>";
-		};
 		289AF39C0F8255CF5FC5890FCF608BE9 /* Pods-SAWebPlayer_Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,33 +175,46 @@
 		338BD53DB91E949B05945D005AA9F0DA /* SAWebPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				FF329628884730D0156656AC28D228A1 /* Pod */,
+				860AA273C6DA61CF85AB9B89CF030186 /* Pod */,
 				78DD8772D936DAD615188EA0B8E1D016 /* Support Files */,
 			);
 			name = SAWebPlayer;
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		4EDD66C8CC6BF6435475A90DE4653A4F /* Classes */ = {
+		6780E10920BD26AA17EC426FA31962DF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1B1019C71E928E2D002E48E8 /* MRAID */,
-				AB73E0AC7C4BA29AB0461839001ADA5C /* SAWebPlayer.h */,
-				245577FD38AEB9D2C490DFDA1B7ADFF8 /* SAWebPlayer.m */,
-				AD518DD59EAD3499E9AD11A9108E2F63 /* SAWebView.h */,
-				64F481EAFA2D848B0C1BECCB73BA3CA9 /* SAWebView.m */,
+				3E5F7B5475FADFE5155A7D42E93AFDB5 /* SAMRAID.h */,
+				92759CACD4ABA65A9609C8A6455EA9AF /* SAMRAID.m */,
+				A988A6E517FC4082AE57C73029DB8A7D /* SAMRAIDCommand.h */,
+				15BE2327415D46C6618FB0EAAE14E6F3 /* SAMRAIDCommand.m */,
+				D206C3E00B63114CF23593B82C10D0D7 /* SAWebPlayer.h */,
+				F3953C274736BC01F204DEC0E265E499 /* SAWebPlayer.m */,
+				9DE5895DECFFB71FA102AE00321FC8FF /* SAWebView.h */,
+				2DFEDB53A40409DC76B2EBB08C9FD3CC /* SAWebView.m */,
 			);
+			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		67C2C7F3A277C08220A888734A045D82 /* Products */ = {
+		693C41B41C8A8CF2794AD84CE478D553 /* SANetworking */ = {
 			isa = PBXGroup;
 			children = (
-				654A5A0EC6B0398CE7084581CE634212 /* libPods-SAWebPlayer_Example.a */,
-				FB2AB2EA9EC1678544742366B4EE8429 /* libPods-Tests.a */,
-				3E08C4A4D65DDDB415E2F80FBE4DAA37 /* libSAWebPlayer.a */,
+				52CBEC0382BB6AA4426047DDF4D37776 /* SAFileDownloader.h */,
+				7BA2C5F39A93559A226D1682557AB8CC /* SAFileDownloader.m */,
+				ADAE8887DA63793B153408EE36CEFEEA /* SAFileItem.h */,
+				3A9441BC7D8FEA843EA8AF7BF4233B0E /* SAFileItem.m */,
+				68F3E2747190F6E2147825B3650F7E7C /* SAFileListDownloader.h */,
+				307ECB0FD366D0EFCC564BB718E7D95B /* SAFileListDownloader.m */,
+				AB8DE1BC432607283303872612370551 /* SAFileQueue.h */,
+				3F4BE5FF3B525595D1ED6A2DC507E948 /* SAFileQueue.m */,
+				9A1FD58CE5026D4BCF67E42E237B2415 /* SANetwork.h */,
+				7BA2AAFC4B6E1AA45E758E8318FB6FA2 /* SANetwork.m */,
+				B59EF57F52C926365188D680B3F6DD74 /* Support Files */,
 			);
-			name = Products;
+			name = SANetworking;
+			path = SANetworking;
 			sourceTree = "<group>";
 		};
 		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
@@ -186,15 +236,47 @@
 			path = "Example/Pods/Target Support Files/SAWebPlayer";
 			sourceTree = "<group>";
 		};
+		7D81C711C1365FD1774D848F078A6F10 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1FC0C095A996919CF2E174FAEE7FE1EC /* libPods-SAWebPlayer_Example.a */,
+				E2535F5CF323B2B7219A919B13E2108E /* libPods-Tests.a */,
+				20915DD21944460B3026B17660AF86AF /* libSANetworking.a */,
+				A3A7AFB4BE69CFD7EBEE89EED8A40633 /* libSAWebPlayer.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				D6C97F7937B7D98D18769661446D7157 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				67C2C7F3A277C08220A888734A045D82 /* Products */,
+				D2CCF6E77628AC1449EBE0671993554B /* Pods */,
+				7D81C711C1365FD1774D848F078A6F10 /* Products */,
 				F9A300109D0D423AB793084DA92D0383 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		860AA273C6DA61CF85AB9B89CF030186 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				6780E10920BD26AA17EC426FA31962DF /* Classes */,
+			);
+			name = Pod;
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		B59EF57F52C926365188D680B3F6DD74 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				68F1AFC7BE04AE1684137DF7156B8255 /* SANetworking.xcconfig */,
+				BE74BD6405C79ECFF8E54797A2B0007E /* SANetworking-dummy.m */,
+				E3383744C56EE055741260E2FF691802 /* SANetworking-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SANetworking";
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -203,6 +285,14 @@
 				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2CCF6E77628AC1449EBE0671993554B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				693C41B41C8A8CF2794AD84CE478D553 /* SANetworking */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		D6C97F7937B7D98D18769661446D7157 /* Development Pods */ = {
@@ -222,63 +312,86 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		FF329628884730D0156656AC28D228A1 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				4EDD66C8CC6BF6435475A90DE4653A4F /* Classes */,
-			);
-			path = Pod;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		AC7F49D4371F3CA6B358A8187CEFE7F5 /* Headers */ = {
+		B10CF69F938F7324B3F567CDE981E88A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B1019CE1E929D78002E48E8 /* SAMRAID.h in Headers */,
-				3F30FA74199D131D881ABFBEC1904350 /* SAWebPlayer.h in Headers */,
-				9CA4FB5F35614F308E4ECB072709BE8B /* SAWebView.h in Headers */,
-				1B1019CA1E928E45002E48E8 /* SAMRAIDCommand.h in Headers */,
+				80C38F4EBADEC2673FBD4A6C7C666CDE /* SAMRAID.h in Headers */,
+				BBB5CA23C9366CEFDF9F7C2382EDB3B5 /* SAMRAIDCommand.h in Headers */,
+				9B643046E1641C9569E9B2DF76C06D43 /* SAWebPlayer.h in Headers */,
+				6547AD5B3B6A5C788668214F95DBD548 /* SAWebView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF148C9CA743EA446F8F067F3C1828F3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8048297AD2153828A10CDCC17A2B5FDD /* SAFileDownloader.h in Headers */,
+				BFA9C8D94E0D12FEC9437B2B540273E5 /* SAFileItem.h in Headers */,
+				1C551B5BD0F58AB22B14866EF4064CDC /* SAFileListDownloader.h in Headers */,
+				F92AD44CE9151E6EF5C7B65D3DB0DC2F /* SAFileQueue.h in Headers */,
+				1B8A6E11462523A3D5A53B279F8FAFCC /* SANetwork.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		C79B5E459B3DF0F4B0BD65293356C9CD /* SAWebPlayer */ = {
+		190CF24985C3D1014E5CDC378FA670F6 /* Pods-SAWebPlayer_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6AE725B9EBBC355D9A955C7E095040D8 /* Build configuration list for PBXNativeTarget "SAWebPlayer" */;
+			buildConfigurationList = 3222DEC1FCEB694B26F868350AEF43CA /* Build configuration list for PBXNativeTarget "Pods-SAWebPlayer_Example" */;
 			buildPhases = (
-				0D5AC07E17D5B5D1FC5F07AA733BE2A0 /* Sources */,
-				F4F6A759E6B08D59AB2687CB66D98650 /* Frameworks */,
-				AC7F49D4371F3CA6B358A8187CEFE7F5 /* Headers */,
+				7AA441A236E967302C0E3C5C68E3D68A /* Sources */,
+				8597651E1AECDED6C4FE2BD13F504666 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = SAWebPlayer;
-			productName = SAWebPlayer;
-			productReference = 3E08C4A4D65DDDB415E2F80FBE4DAA37 /* libSAWebPlayer.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		DC78E00848A5463ED8CA9DF0657389AB /* Pods-SAWebPlayer_Example */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FCAD8B602A7B66A4EA14166007D4AB6C /* Build configuration list for PBXNativeTarget "Pods-SAWebPlayer_Example" */;
-			buildPhases = (
-				D10D17435418B7C73AAC15E793C5C201 /* Sources */,
-				0D8435593F83C2933BD8800BDB15AFE9 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EC1F060C5088ADE0C3A924626F3BE95D /* PBXTargetDependency */,
+				BD8E5F6BFC377B1E52FF5B4F3A1758A6 /* PBXTargetDependency */,
+				708C113BF9BEE7891EEBB97AC7B2CA44 /* PBXTargetDependency */,
 			);
 			name = "Pods-SAWebPlayer_Example";
 			productName = "Pods-SAWebPlayer_Example";
-			productReference = 654A5A0EC6B0398CE7084581CE634212 /* libPods-SAWebPlayer_Example.a */;
+			productReference = 1FC0C095A996919CF2E174FAEE7FE1EC /* libPods-SAWebPlayer_Example.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		7DC7DE2EA09FA8F8F9E576B019D47EA4 /* SANetworking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA9012E7F7E2498F0E44C5715788A3D1 /* Build configuration list for PBXNativeTarget "SANetworking" */;
+			buildPhases = (
+				F1A8D9E44822ACC501BBF521C19D6911 /* Sources */,
+				C727F204863572870C16A720C0E2813F /* Frameworks */,
+				CF148C9CA743EA446F8F067F3C1828F3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SANetworking;
+			productName = SANetworking;
+			productReference = 20915DD21944460B3026B17660AF86AF /* libSANetworking.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9B5A382E6078D321D68EF088CBD8B6EB /* SAWebPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6FAACFC2B405D1A5A984873FCA97405 /* Build configuration list for PBXNativeTarget "SAWebPlayer" */;
+			buildPhases = (
+				EC43D17EB4E7EDD9CD734FB3BB6C400E /* Sources */,
+				DA135D45055DE8ECED8EBC89DA5CBCFB /* Frameworks */,
+				B10CF69F938F7324B3F567CDE981E88A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0A1C93329E2F05AF8A7F143DC8D7602C /* PBXTargetDependency */,
+			);
+			name = SAWebPlayer;
+			productName = SAWebPlayer;
+			productReference = A3A7AFB4BE69CFD7EBEE89EED8A40633 /* libSAWebPlayer.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		F3C3E5F034536D5FA5F886EDC441952C /* Pods-Tests */ = {
@@ -294,7 +407,7 @@
 			);
 			name = "Pods-Tests";
 			productName = "Pods-Tests";
-			productReference = FB2AB2EA9EC1678544742366B4EE8429 /* libPods-Tests.a */;
+			productReference = E2535F5CF323B2B7219A919B13E2108E /* libPods-Tests.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -314,27 +427,24 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 67C2C7F3A277C08220A888734A045D82 /* Products */;
+			productRefGroup = 7D81C711C1365FD1774D848F078A6F10 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DC78E00848A5463ED8CA9DF0657389AB /* Pods-SAWebPlayer_Example */,
+				190CF24985C3D1014E5CDC378FA670F6 /* Pods-SAWebPlayer_Example */,
 				F3C3E5F034536D5FA5F886EDC441952C /* Pods-Tests */,
-				C79B5E459B3DF0F4B0BD65293356C9CD /* SAWebPlayer */,
+				7DC7DE2EA09FA8F8F9E576B019D47EA4 /* SANetworking */,
+				9B5A382E6078D321D68EF088CBD8B6EB /* SAWebPlayer */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0D5AC07E17D5B5D1FC5F07AA733BE2A0 /* Sources */ = {
+		7AA441A236E967302C0E3C5C68E3D68A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B804D93FC8AF18A8D384013FB189E3B7 /* SAWebPlayer-dummy.m in Sources */,
-				960702AF5DE8468AF9A291B1A5B8F21F /* SAWebPlayer.m in Sources */,
-				1B1019CF1E929D78002E48E8 /* SAMRAID.m in Sources */,
-				5691F56EF38AFE1AE4C0DA64C4E96110 /* SAWebView.m in Sources */,
-				1B1019CB1E928E45002E48E8 /* SAMRAIDCommand.m in Sources */,
+				A116FBB36C6C0CFD45CD54B2F9EB318F /* Pods-SAWebPlayer_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,27 +456,125 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D10D17435418B7C73AAC15E793C5C201 /* Sources */ = {
+		EC43D17EB4E7EDD9CD734FB3BB6C400E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CCD00746D79A1E704D9FBF6D8FF8E34 /* Pods-SAWebPlayer_Example-dummy.m in Sources */,
+				3F61E1C5FEB1D9C1DF93036BFD9F195C /* SAMRAID.m in Sources */,
+				A84293F3CF5433B657B95106C50B45ED /* SAMRAIDCommand.m in Sources */,
+				DD55A0F112DC91ACD4FB03EF11287643 /* SAWebPlayer-dummy.m in Sources */,
+				735076B612F711827A2AFEC52BA89CE0 /* SAWebPlayer.m in Sources */,
+				1248CFC091038E95D6A35FDC15BFB6DD /* SAWebView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1A8D9E44822ACC501BBF521C19D6911 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8BC166E97A84C71CFD8D55734454748 /* SAFileDownloader.m in Sources */,
+				DB31176BCB8B76E05C1B14446442D6AF /* SAFileItem.m in Sources */,
+				E7952396707E672076A539702FA32967 /* SAFileListDownloader.m in Sources */,
+				05C54EDC163227900A57D83B0FF12F77 /* SAFileQueue.m in Sources */,
+				A9FE1D080FA9CB6261317F04B7F5D793 /* SANetwork.m in Sources */,
+				CA549230537F6F2CB66FC0F4B1B7B07B /* SANetworking-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EC1F060C5088ADE0C3A924626F3BE95D /* PBXTargetDependency */ = {
+		0A1C93329E2F05AF8A7F143DC8D7602C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SANetworking;
+			target = 7DC7DE2EA09FA8F8F9E576B019D47EA4 /* SANetworking */;
+			targetProxy = E2D35B03B36432271D0191E4AD8CC7DB /* PBXContainerItemProxy */;
+		};
+		708C113BF9BEE7891EEBB97AC7B2CA44 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SAWebPlayer;
-			target = C79B5E459B3DF0F4B0BD65293356C9CD /* SAWebPlayer */;
-			targetProxy = 852E94559DC88BBA303DA3AA49EB59DF /* PBXContainerItemProxy */;
+			target = 9B5A382E6078D321D68EF088CBD8B6EB /* SAWebPlayer */;
+			targetProxy = 74829AE77C51C0EFD58498AAB7099C56 /* PBXContainerItemProxy */;
+		};
+		BD8E5F6BFC377B1E52FF5B4F3A1758A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SANetworking;
+			target = 7DC7DE2EA09FA8F8F9E576B019D47EA4 /* SANetworking */;
+			targetProxy = 42DD2A1C9432DAFC6E0A690B01A876BE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1F05488AEA66E5E8770E104E5B6F2656 /* Release */ = {
+		02C8E9ECD82CF921CA71279D35AF95DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4ABA5A0968BBC80390877C3EAFFE5E7B /* SAWebPlayer.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SAWebPlayer/SAWebPlayer-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4827E3416680A4A1F7D4A20CA33D93F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7AA4EB9E673006A48AE68D8ADB7D8AB /* Pods-SAWebPlayer_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5078D30DBBD24E06BF34CF8A6A68015F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68F1AFC7BE04AE1684137DF7156B8255 /* SANetworking.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SANetworking/SANetworking-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5FB85602DD081094426ADDDDCCDFEB96 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4ABA5A0968BBC80390877C3EAFFE5E7B /* SAWebPlayer.xcconfig */;
 			buildSettings = {
@@ -388,29 +596,6 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
-		};
-		21DF6401823C2A70BD1929A2C8FAE5AE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C82FD0E649B7C861CBC97B911635255 /* Pods-SAWebPlayer_Example.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
 		};
 		79B0C2E66EFA9917ED6EDDB8FC6A7684 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -452,9 +637,9 @@
 			};
 			name = Release;
 		};
-		7B5DF396EA1ADD3A04821BDB69BE1884 /* Debug */ = {
+		99F26CC80D9440A856DAC5016C7B1FCB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4ABA5A0968BBC80390877C3EAFFE5E7B /* SAWebPlayer.xcconfig */;
+			baseConfigurationReference = 8C82FD0E649B7C861CBC97B911635255 /* Pods-SAWebPlayer_Example.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -462,7 +647,30 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SAWebPlayer/SAWebPlayer-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A62BA595B54CD1E9A5632DB454312DF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68F1AFC7BE04AE1684137DF7156B8255 /* SANetworking.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SANetworking/SANetworking-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
@@ -542,29 +750,6 @@
 			};
 			name = Debug;
 		};
-		DAB139289BA1014EDA8F23781397726C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7AA4EB9E673006A48AE68D8ADB7D8AB /* Pods-SAWebPlayer_Example.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		F0DF265DAF01C73FBE6F8B27AA3DD84E /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C5322D13B22C61501B3EC8F407A0E5EA /* Pods-Tests.release.xcconfig */;
@@ -600,11 +785,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6AE725B9EBBC355D9A955C7E095040D8 /* Build configuration list for PBXNativeTarget "SAWebPlayer" */ = {
+		3222DEC1FCEB694B26F868350AEF43CA /* Build configuration list for PBXNativeTarget "Pods-SAWebPlayer_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7B5DF396EA1ADD3A04821BDB69BE1884 /* Debug */,
-				1F05488AEA66E5E8770E104E5B6F2656 /* Release */,
+				99F26CC80D9440A856DAC5016C7B1FCB /* Debug */,
+				4827E3416680A4A1F7D4A20CA33D93F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -618,11 +803,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FCAD8B602A7B66A4EA14166007D4AB6C /* Build configuration list for PBXNativeTarget "Pods-SAWebPlayer_Example" */ = {
+		BA9012E7F7E2498F0E44C5715788A3D1 /* Build configuration list for PBXNativeTarget "SANetworking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				21DF6401823C2A70BD1929A2C8FAE5AE /* Debug */,
-				DAB139289BA1014EDA8F23781397726C /* Release */,
+				A62BA595B54CD1E9A5632DB454312DF1 /* Debug */,
+				5078D30DBBD24E06BF34CF8A6A68015F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6FAACFC2B405D1A5A984873FCA97405 /* Build configuration list for PBXNativeTarget "SAWebPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02C8E9ECD82CF921CA71279D35AF95DB /* Debug */,
+				5FB85602DD081094426ADDDDCCDFEB96 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
