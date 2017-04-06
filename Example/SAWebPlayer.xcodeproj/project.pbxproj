@@ -17,6 +17,8 @@
 		1B1019F11E93D78B002E48E8 /* mraid2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B1019F01E93D78B002E48E8 /* mraid2.txt */; };
 		1B1019F31E93D793002E48E8 /* mraid3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B1019F21E93D793002E48E8 /* mraid3.txt */; };
 		1B1019F51E93D79C002E48E8 /* mraid4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B1019F41E93D79C002E48E8 /* mraid4.txt */; };
+		1B1019FA1E954174002E48E8 /* mraid5.html in Resources */ = {isa = PBXBuildFile; fileRef = 1B1019F91E954174002E48E8 /* mraid5.html */; };
+		1B1019FC1E964DCA002E48E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B1019FB1E964DCA002E48E8 /* LaunchScreen.storyboard */; };
 		59166D8C29CF04107AFB2552 /* libPods-SAWebPlayer_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FAD1BB7D66BE8820343C03 /* libPods-SAWebPlayer_Example.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -53,6 +55,8 @@
 		1B1019F01E93D78B002E48E8 /* mraid2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mraid2.txt; sourceTree = "<group>"; };
 		1B1019F21E93D793002E48E8 /* mraid3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mraid3.txt; sourceTree = "<group>"; };
 		1B1019F41E93D79C002E48E8 /* mraid4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mraid4.txt; sourceTree = "<group>"; };
+		1B1019F91E954174002E48E8 /* mraid5.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = mraid5.html; sourceTree = "<group>"; };
+		1B1019FB1E964DCA002E48E8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		200551736B6A75299BF20A93 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* SAWebPlayer_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAWebPlayer_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -121,6 +125,7 @@
 				1B1019F01E93D78B002E48E8 /* mraid2.txt */,
 				1B1019F21E93D793002E48E8 /* mraid3.txt */,
 				1B1019F41E93D79C002E48E8 /* mraid4.txt */,
+				1B1019F91E954174002E48E8 /* mraid5.html */,
 			);
 			name = Datasource;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 		6003F593195388D20070C39A /* Example for SAWebPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				1B1019FB1E964DCA002E48E8 /* LaunchScreen.storyboard */,
 				1B1019E31E93D73F002E48E8 /* Datasource */,
 				6003F59C195388D20070C39A /* SAAppDelegate.h */,
 				6003F59D195388D20070C39A /* SAAppDelegate.m */,
@@ -301,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				1B1019FA1E954174002E48E8 /* mraid5.html in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				1B1019F31E93D793002E48E8 /* mraid3.txt in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
@@ -310,6 +317,7 @@
 				1B1019EB1E93D772002E48E8 /* ad4.txt in Resources */,
 				1B1019EF1E93D783002E48E8 /* mraid1.txt in Resources */,
 				1B1019F51E93D79C002E48E8 /* mraid4.txt in Resources */,
+				1B1019FC1E964DCA002E48E8 /* LaunchScreen.storyboard in Resources */,
 				1B1019E71E93D763002E48E8 /* ad2.txt in Resources */,
 				1B1019ED1E93D77A002E48E8 /* ad5.txt in Resources */,
 			);
@@ -582,7 +590,6 @@
 			baseConfigurationReference = E688AAC96A2B4BC99202CD22 /* Pods-SAWebPlayer_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = DCC9L689QJ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SAWebPlayer/SAWebPlayer-Prefix.pch";
@@ -601,7 +608,6 @@
 			baseConfigurationReference = B9BA47A5738D3909C3C18F66 /* Pods-SAWebPlayer_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = DCC9L689QJ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SAWebPlayer/SAWebPlayer-Prefix.pch";

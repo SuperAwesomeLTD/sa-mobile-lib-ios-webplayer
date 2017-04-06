@@ -4,11 +4,11 @@
  */
 
 #import "SAWebPlayer.h"
-#import <JavaScriptCore/JavaScriptCore.h>
 #import "SAMRAID.h"
 #import "SAMRAIDCommand.h"
-#import <QuartzCore/QuartzCore.h>
 #import "SANetwork.h"
+#import <JavaScriptCore/JavaScriptCore.h>
+#import <QuartzCore/QuartzCore.h>
 #import <MediaPlayer/MediaPlayer.h>
 
 @interface SAWebPlayer () <UIWebViewDelegate, SAMRAIDCommandProtocol>
@@ -20,11 +20,15 @@
 
 @property (nonatomic, strong) SAMRAID           *mraid;
 
+@property (nonatomic, strong) UIView            *expandedPlayerBg;
 @property (nonatomic, strong) SAWebPlayer       *expandedPlayer;
 
 @property (nonatomic, strong) NSString          *html;
 
 @property (nonatomic, strong) UIButton          *closeBtn;
+
+@property (nonatomic, assign) CGFloat           scaleX;
+@property (nonatomic, assign) CGFloat           scaleY;
 
 @end
 
@@ -32,6 +36,9 @@
 
 - (id) initWithContentSize:(CGSize) contentSize
             andParentFrame:(CGRect) parentRect{
+    
+    // get a weak self reference
+    __weak typeof (self) weakSelf = self;
     
     // save the content size
     _contentSize = contentSize;
@@ -52,8 +59,6 @@
         
         JSContext *ctx = [_webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
         ctx[@"console"][@"log"] = ^(JSValue * msg) {
-            
-            NSLog(@"%@", msg);
             
             if ([msg isString] && [msg toString] != nil && [[msg toString] rangeOfString:@"SAMRAID_EXT"].location != NSNotFound) {
                 
@@ -76,6 +81,7 @@
                         [_mraid setStateToExpanded];
                     }
                     else if (_isResized) {
+                        [_mraid setReady];
                         [_mraid setStateToResized];
                     }
                     else  {
@@ -88,47 +94,8 @@
                         
                         _closeBtn = [[UIButton alloc] init];
                         
-                        NSInteger width = 40;
-                        NSInteger height = 40;
-                        NSInteger x = 0;
-                        NSInteger y = 0;
+                        [self updateCloseBtnFrame:_mraid.expandedCustomClosePosition];
                         
-                        switch (_mraid.expandedCustomClosePosition) {
-                            case Top_Left:
-                                x = 0;
-                                y = 0;
-                                break;
-                            case Top_Right:
-                                x = self.frame.size.width - 40;
-                                y = 0;
-                                break;
-                            case Center:
-                                x = (self.frame.size.width / 2) - 20;
-                                y = (self.frame.size.height / 2) - 20;
-                                break;
-                            case Bottom_Left:
-                                x = 0;
-                                y = self.frame.size.height - 40;
-                                break;
-                            case Bottom_Right:
-                                x = self.frame.size.width - 40;
-                                y = self.frame.size.height - 40;
-                                break;
-                            case Top_Center:
-                                x = (self.frame.size.width / 2) - 20;
-                                y = 0;
-                                break;
-                            case Bottom_Center:
-                                x = (self.frame.size.width / 2) - 20;
-                                y = self.frame.size.height - 40;
-                                break;
-                            case Unavailable:
-                            default:
-                                x = 0; y = 0; width = 0; height = 0;
-                                break;
-                        }
-                        
-                        _closeBtn.frame = CGRectMake(x, y, width, height);
                         [_closeBtn setBackgroundColor:[UIColor redColor]];
                         [_closeBtn setTitle:@"X" forState:UIControlStateNormal];
                         [[_closeBtn titleLabel] setFont:[UIFont boldSystemFontOfSize:16]];
@@ -139,6 +106,19 @@
                 }
             }
         };
+        
+        // add notfication rotation
+        [[NSNotificationCenter defaultCenter] addObserverForName:@"UIDeviceOrientationDidChangeNotification"
+                                                          object:nil
+                                                           queue:nil
+                                                      usingBlock:
+         ^(NSNotification * note) {
+             
+             CGRect superFrame = weakSelf.isExpanded ? [UIScreen mainScreen].bounds : weakSelf.superview.frame;
+             [weakSelf updateParentFrame:superFrame];
+             [weakSelf updateCloseBtnFrame:weakSelf.mraid.expandedCustomClosePosition];
+             
+         }];
         
         // set delegate
         _webView.delegate = self;
@@ -155,13 +135,20 @@
     
 }
 
+- (void) removeFromSuperview {
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"UIDeviceOrientationDidChangeNotification"
+                                                  object:nil];
+    [super removeFromSuperview];
+}
+
 - (void) updateParentFrame:(CGRect) parentRect {
     
     // do the calcs
     CGRect contentRect = CGRectMake(0, 0, _contentSize.width, _contentSize.height);
     CGRect result = [self map:contentRect into:parentRect];
-    CGFloat scaleX = result.size.width / _contentSize.width;
-    CGFloat scaleY = result.size.height / _contentSize.height;
+    _scaleX = result.size.width / _contentSize.width;
+    _scaleY = result.size.height / _contentSize.height;
     CGFloat diffX = (result.size.width - _contentSize.width) / 2.0f;
     CGFloat diffY = (result.size.height - _contentSize.height) / 2.0f;
     
@@ -172,11 +159,55 @@
     _webView.transform = CGAffineTransformInvert(_webTransform);
     
     // update instance transform
-    _webTransform = CGAffineTransformConcat(CGAffineTransformMakeScale(scaleX, scaleY),
+    _webTransform = CGAffineTransformConcat(CGAffineTransformMakeScale(_scaleX, _scaleY),
                                             CGAffineTransformMakeTranslation(diffX, diffY));
     
     // apply new transform
     _webView.transform = _webTransform;
+}
+
+- (void) updateCloseBtnFrame:(SACustomClosePosition) closePos {
+    NSInteger width = 40;
+    NSInteger height = 40;
+    NSInteger x = 0;
+    NSInteger y = 0;
+    
+    switch (closePos) {
+        case Top_Left:
+            x = 0;
+            y = 0;
+            break;
+        case Top_Right:
+            x = self.frame.size.width - 40;
+            y = 0;
+            break;
+        case Center:
+            x = (self.frame.size.width / 2) - 20;
+            y = (self.frame.size.height / 2) - 20;
+            break;
+        case Bottom_Left:
+            x = 0;
+            y = self.frame.size.height - 40;
+            break;
+        case Bottom_Right:
+            x = self.frame.size.width - 40;
+            y = self.frame.size.height - 40;
+            break;
+        case Top_Center:
+            x = (self.frame.size.width / 2) - 20;
+            y = 0;
+            break;
+        case Bottom_Center:
+            x = (self.frame.size.width / 2) - 20;
+            y = self.frame.size.height - 40;
+            break;
+        case Unavailable:
+        default:
+            x = 0; y = 0; width = 0; height = 0;
+            break;
+    }
+    
+    _closeBtn.frame = CGRectMake(x, y, width, height);
 }
 
 - (void) loadHTML:(NSString*)html witBase:(NSString*)base {
@@ -248,8 +279,6 @@
 
 - (BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
-    NSLog(@"URL is %@", [request URL]);
-    
     NSString *url = [[request URL] absoluteString];
     
     SAMRAIDCommand *command = [[SAMRAIDCommand alloc] init];
@@ -281,19 +310,25 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 - (void) closeCommand {
-    
-    if (_isExpanded) {
-        [self removeFromSuperview];
+
+    if (_isExpanded || _isResized) {
+        
+        [self.superview removeFromSuperview];
     }
-    
 }
 
 - (void) expandCommand:(NSString*)url {
     
     UIViewController *root = [UIApplication sharedApplication].keyWindow.rootViewController;
-    CGSize screen = [UIScreen mainScreen].bounds.size;
+    CGRect screen = [UIScreen mainScreen].bounds;
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
     
-    _expandedPlayer = [[SAWebPlayer alloc] initWithContentSize:screen andParentFrame:CGRectMake(0, 0, screen.width, screen.height)];
+    NSInteger max = MAX(screenSize.width, screenSize.height);
+    
+    _expandedPlayerBg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, max, max)];
+    _expandedPlayerBg.backgroundColor = [UIColor blackColor];
+    
+    _expandedPlayer = [[SAWebPlayer alloc] initWithContentSize:screenSize andParentFrame:screen];
     _expandedPlayer.layer.zPosition = MAXFLOAT;
     _expandedPlayer.isExpanded = true;
     _expandedPlayer.mraid.expandedCustomClosePosition = _mraid.expandedCustomClosePosition;
@@ -314,10 +349,60 @@
         [_expandedPlayer loadHTML:_html witBase:nil];
     }
     
-    [root.view addSubview:_expandedPlayer];
+    [_expandedPlayerBg addSubview:_expandedPlayer];
+    
+    [root.view addSubview:_expandedPlayerBg];
 }
 
 - (void) resizeCommand {
+    
+    UIViewController *root = [UIApplication sharedApplication].keyWindow.rootViewController;
+    CGRect screen = [UIScreen mainScreen].bounds;
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    
+    NSInteger finalHeight = _mraid.expandedHeight * _scaleY;
+    
+    NSInteger finalHalfHeight = finalHeight / 2;
+    NSInteger locY = [self convertPoint:self.bounds.origin toView:root.view].y;
+    NSInteger wwYMidle = locY + (self.frame.size.height / 2);
+    NSInteger bottomDif = screenSize.height - wwYMidle;
+    NSInteger topDiff = wwYMidle;
+    NSInteger downMax = MIN(bottomDif, finalHalfHeight);
+    NSInteger upMax = MIN(topDiff, finalHalfHeight);
+    upMax += downMax < finalHalfHeight ? (finalHalfHeight - bottomDif) : 0;
+    NSInteger finalY = wwYMidle - upMax;
+    
+    NSInteger finalWidth = _mraid.expandedWidth * _scaleX;
+    
+    NSInteger finalHalfWidth = finalWidth / 2;
+    NSInteger locX = [self convertPoint:self.bounds.origin toView:root.view].x;
+    NSInteger wwXMidle = locX + (self.frame.size.width / 2);
+    NSInteger rightDiff = screenSize.width - wwXMidle;
+    NSInteger leftDiff = wwXMidle;
+    NSInteger rightMax = MIN(rightDiff, finalHalfWidth);
+    NSInteger leftMax = MIN(leftDiff, finalHalfWidth);
+    leftMax += rightMax < finalHalfWidth ? (finalHalfWidth - rightDiff) : 0;
+    NSInteger finalX = wwXMidle - leftMax;
+    
+    CGRect finalRect;
+    
+    if (finalWidth < screenSize.width && finalHeight < screenSize.height) {
+        finalRect = CGRectMake(finalX, finalY, finalWidth, finalHeight);
+    } else {
+        finalRect = screen;
+    }
+    
+    _expandedPlayerBg = [[UIView alloc] initWithFrame:finalRect];
+    _expandedPlayerBg.backgroundColor = [UIColor blackColor];
+    
+    _expandedPlayer = [[SAWebPlayer alloc] initWithContentSize:CGSizeMake(_mraid.expandedWidth, _mraid.expandedHeight) andParentFrame:_expandedPlayerBg.frame];
+    _expandedPlayer.layer.zPosition = MAXFLOAT;
+    _expandedPlayer.isResized = true;
+    _expandedPlayer.mraid.expandedCustomClosePosition = _mraid.expandedCustomClosePosition;
+    [_expandedPlayerBg addSubview:_expandedPlayer];
+    [_expandedPlayer loadHTML:_html witBase:nil];
+    
+    [root.view addSubview:_expandedPlayerBg];
     
 }
 
@@ -375,6 +460,13 @@
                          andOffsetY:(NSInteger) offsetY
                    andClosePosition:(SACustomClosePosition) customClosePosition
                   andAllowOffscreen:(BOOL) allowOffscreen {
+    
+    _mraid.expandedWidth = width;
+    _mraid.expandedHeight = height;
+    _mraid.expandedOffsetX = offsetX;
+    _mraid.expandedOffsetY = offsetY;
+    _mraid.expandedCustomClosePosition = customClosePosition;
+    _mraid.expandedAllowsOffscreen = allowOffscreen;
     
 }
 

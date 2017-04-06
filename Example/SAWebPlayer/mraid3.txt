@@ -162,6 +162,7 @@ mraid.resize();
 
 function updateAd(state)
 {
+console.log("State is " + state);
 if (state == "resized")
 {
 toggleLayer('normal', 'resized');

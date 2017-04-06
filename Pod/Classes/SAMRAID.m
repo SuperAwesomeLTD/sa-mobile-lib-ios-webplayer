@@ -106,13 +106,13 @@
 
 - (void) setCurrentPosition: (CGSize)size {
     NSInteger x = 0, y = 0, width = size.width, height = size.height;
-    NSString *method = [NSString stringWithFormat:@"mraid.setCurrentPosition(%d, %d, %d, %d);", x, y, width, height];
+    NSString *method = [NSString stringWithFormat:@"mraid.setCurrentPosition(%ld, %ld, %ld, %ld);", (long)x, (long)y, (long)width, (long)height];
     [self injectJS:method];
 }
 
 - (void) setDefaultPosition: (CGSize) size {
     NSInteger x = 0, y = 0, width = size.width, height = size.height;
-    NSString *method = [NSString stringWithFormat:@"mraid.setDefaultPosition(%d, %d, %d, %d);", x, y, width, height];
+    NSString *method = [NSString stringWithFormat:@"mraid.setDefaultPosition(%ld, %ld, %ld, %ld);", (long)x, (long)y, (long)width, (long)height];
     [self injectJS:method];
 }
 
