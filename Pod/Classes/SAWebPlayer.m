@@ -16,11 +16,9 @@
 // the internal web view
 @property (nonatomic, strong) SAWebView         *webView;
 @property (nonatomic, assign) CGSize            contentSize;
-@property (nonatomic, assign) CGAffineTransform webTransform;
 
 @property (nonatomic, strong) SAMRAID           *mraid;
 
-@property (nonatomic, strong) UIView            *expandedPlayerBg;
 @property (nonatomic, strong) SAWebPlayer       *expandedPlayer;
 
 @property (nonatomic, strong) NSString          *html;
@@ -29,6 +27,8 @@
 
 @property (nonatomic, assign) CGFloat           scaleX;
 @property (nonatomic, assign) CGFloat           scaleY;
+
+@property (nonatomic, weak) SAWebPlayer         *parent;
 
 @end
 
@@ -42,9 +42,6 @@
     
     // save the content size
     _contentSize = contentSize;
-    
-    // make transform identity
-    _webTransform = CGAffineTransformIdentity;
     
     if (self = [super init]) {
         
@@ -144,26 +141,72 @@
 
 - (void) updateParentFrame:(CGRect) parentRect {
     
-    // do the calcs
-    CGRect contentRect = CGRectMake(0, 0, _contentSize.width, _contentSize.height);
-    CGRect result = [self map:contentRect into:parentRect];
-    _scaleX = result.size.width / _contentSize.width;
-    _scaleY = result.size.height / _contentSize.height;
-    CGFloat diffX = (result.size.width - _contentSize.width) / 2.0f;
-    CGFloat diffY = (result.size.height - _contentSize.height) / 2.0f;
+    if (_isResized) {
+        
+        _webView.transform = CGAffineTransformMakeScale(1.0, 1.0);
+        
+        UIViewController *root = [UIApplication sharedApplication].keyWindow.rootViewController;
+        CGRect screen = [UIScreen mainScreen].bounds;
+        CGSize screenSize = [UIScreen mainScreen].bounds.size;
+        
+        NSInteger finalHeight = _contentSize.height * _parent.scaleY;
+        
+        NSInteger finalHalfHeight = finalHeight / 2;
+        NSInteger locY = [_parent convertPoint:_parent.bounds.origin toView:root.view].y;
+        NSInteger wwYMidle = locY + (_parent.frame.size.height / 2);
+        NSInteger bottomDif = screenSize.height - wwYMidle;
+        NSInteger topDiff = wwYMidle;
+        NSInteger downMax = MIN(bottomDif, finalHalfHeight);
+        NSInteger upMax = MIN(topDiff, finalHalfHeight);
+        upMax += downMax < finalHalfHeight ? (finalHalfHeight - bottomDif) : 0;
+        NSInteger finalY = wwYMidle - upMax;
+        
+        NSInteger finalWidth = _contentSize.width * _parent.scaleX;
+        
+        NSInteger finalHalfWidth = finalWidth / 2;
+        NSInteger locX = [_parent convertPoint:_parent.bounds.origin toView:root.view].x;
+        NSInteger wwXMidle = locX + (_parent.frame.size.width / 2);
+        NSInteger rightDiff = screenSize.width - wwXMidle;
+        NSInteger leftDiff = wwXMidle;
+        NSInteger rightMax = MIN(rightDiff, finalHalfWidth);
+        NSInteger leftMax = MIN(leftDiff, finalHalfWidth);
+        leftMax += rightMax < finalHalfWidth ? (finalHalfWidth - rightDiff) : 0;
+        NSInteger finalX = wwXMidle - leftMax;
+        
+        CGRect finalRect;
+        
+        if (finalWidth < screenSize.width && finalHeight < screenSize.height) {
+            finalRect = CGRectMake(finalX, finalY, finalWidth, finalHeight);
+            _scaleX = finalRect.size.width / _contentSize.width;
+            _scaleY = finalRect.size.height / _contentSize.height;
+        } else {
+            finalRect = screen;
+            CGRect result = [self map:_webView.frame into:finalRect];
+            _scaleX = result.size.width / _contentSize.width;
+            _scaleY = result.size.height / _contentSize.height;
+        }
+        
+        [self setFrame:finalRect];
+        
+        _webView.transform = CGAffineTransformMakeScale(_scaleX, _scaleY);
+        
+        CGFloat cX = self.center.x - self.frame.origin.x;
+        CGFloat cY = self.center.y - self.frame.origin.y;
+        
+        _webView.center = CGPointMake(cX, cY);
+    }
+    else {
     
-    // update web player frame
-    [self setFrame:result];
-    
-    // invert transform
-    _webView.transform = CGAffineTransformInvert(_webTransform);
-    
-    // update instance transform
-    _webTransform = CGAffineTransformConcat(CGAffineTransformMakeScale(_scaleX, _scaleY),
-                                            CGAffineTransformMakeTranslation(diffX, diffY));
-    
-    // apply new transform
-    _webView.transform = _webTransform;
+        CGRect contentRect = CGRectMake(0, 0, _contentSize.width, _contentSize.height);
+        CGRect result = [self map:contentRect into:parentRect];
+        _scaleX = result.size.width / _contentSize.width;
+        _scaleY = result.size.height / _contentSize.height;
+        
+        [self setFrame:CGRectMake(0, 0, parentRect.size.width, parentRect.size.height)];
+        
+        _webView.transform = CGAffineTransformMakeScale(_scaleX, _scaleY);
+        _webView.center = self.center;
+    }
 }
 
 - (void) updateCloseBtnFrame:(SACustomClosePosition) closePos {
@@ -313,7 +356,7 @@
 
     if (_isExpanded || _isResized) {
         
-        [self.superview removeFromSuperview];
+        [self removeFromSuperview];
     }
 }
 
@@ -322,15 +365,11 @@
     UIViewController *root = [UIApplication sharedApplication].keyWindow.rootViewController;
     CGRect screen = [UIScreen mainScreen].bounds;
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
-    
-    NSInteger max = MAX(screenSize.width, screenSize.height);
-    
-    _expandedPlayerBg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, max, max)];
-    _expandedPlayerBg.backgroundColor = [UIColor blackColor];
-    
+
     _expandedPlayer = [[SAWebPlayer alloc] initWithContentSize:screenSize andParentFrame:screen];
     _expandedPlayer.layer.zPosition = MAXFLOAT;
     _expandedPlayer.isExpanded = true;
+    _expandedPlayer.backgroundColor = [UIColor blackColor];
     _expandedPlayer.mraid.expandedCustomClosePosition = _mraid.expandedCustomClosePosition;
     
     if (url != nil) {
@@ -349,60 +388,21 @@
         [_expandedPlayer loadHTML:_html witBase:nil];
     }
     
-    [_expandedPlayerBg addSubview:_expandedPlayer];
-    
-    [root.view addSubview:_expandedPlayerBg];
+    [root.view addSubview:_expandedPlayer];
 }
 
 - (void) resizeCommand {
     
     UIViewController *root = [UIApplication sharedApplication].keyWindow.rootViewController;
-    CGRect screen = [UIScreen mainScreen].bounds;
-    CGSize screenSize = [UIScreen mainScreen].bounds.size;
     
-    NSInteger finalHeight = _mraid.expandedHeight * _scaleY;
-    
-    NSInteger finalHalfHeight = finalHeight / 2;
-    NSInteger locY = [self convertPoint:self.bounds.origin toView:root.view].y;
-    NSInteger wwYMidle = locY + (self.frame.size.height / 2);
-    NSInteger bottomDif = screenSize.height - wwYMidle;
-    NSInteger topDiff = wwYMidle;
-    NSInteger downMax = MIN(bottomDif, finalHalfHeight);
-    NSInteger upMax = MIN(topDiff, finalHalfHeight);
-    upMax += downMax < finalHalfHeight ? (finalHalfHeight - bottomDif) : 0;
-    NSInteger finalY = wwYMidle - upMax;
-    
-    NSInteger finalWidth = _mraid.expandedWidth * _scaleX;
-    
-    NSInteger finalHalfWidth = finalWidth / 2;
-    NSInteger locX = [self convertPoint:self.bounds.origin toView:root.view].x;
-    NSInteger wwXMidle = locX + (self.frame.size.width / 2);
-    NSInteger rightDiff = screenSize.width - wwXMidle;
-    NSInteger leftDiff = wwXMidle;
-    NSInteger rightMax = MIN(rightDiff, finalHalfWidth);
-    NSInteger leftMax = MIN(leftDiff, finalHalfWidth);
-    leftMax += rightMax < finalHalfWidth ? (finalHalfWidth - rightDiff) : 0;
-    NSInteger finalX = wwXMidle - leftMax;
-    
-    CGRect finalRect;
-    
-    if (finalWidth < screenSize.width && finalHeight < screenSize.height) {
-        finalRect = CGRectMake(finalX, finalY, finalWidth, finalHeight);
-    } else {
-        finalRect = screen;
-    }
-    
-    _expandedPlayerBg = [[UIView alloc] initWithFrame:finalRect];
-    _expandedPlayerBg.backgroundColor = [UIColor blackColor];
-    
-    _expandedPlayer = [[SAWebPlayer alloc] initWithContentSize:CGSizeMake(_mraid.expandedWidth, _mraid.expandedHeight) andParentFrame:_expandedPlayerBg.frame];
+    _expandedPlayer = [[SAWebPlayer alloc] initWithContentSize:CGSizeMake(_mraid.expandedWidth, _mraid.expandedHeight) andParentFrame:CGRectZero];
     _expandedPlayer.layer.zPosition = MAXFLOAT;
     _expandedPlayer.isResized = true;
-    _expandedPlayer.mraid.expandedCustomClosePosition = _mraid.expandedCustomClosePosition;
-    [_expandedPlayerBg addSubview:_expandedPlayer];
+    _expandedPlayer.backgroundColor = [UIColor blackColor];
+    _expandedPlayer.parent = self;
     [_expandedPlayer loadHTML:_html witBase:nil];
-    
-    [root.view addSubview:_expandedPlayerBg];
+    [root.view addSubview:_expandedPlayer];
+    [_expandedPlayer updateParentFrame:CGRectZero];
     
 }
 
