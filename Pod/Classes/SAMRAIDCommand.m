@@ -56,52 +56,22 @@
                 break;
             }
             case Expand: {
-                NSString *url = [_params objectForKey:@"url"];
-                
-                if (url != nil) {
-                    url = [[url stringByReplacingOccurrencesOfString:@"%3A" withString:@":"]
-                           stringByReplacingOccurrencesOfString:@"%2F" withString:@"/"];
-                }
-                
+                NSString *url = [self parseUrl:[_params objectForKey:@"url"]];
                 [_delegate expandCommand:url];
-                
                 break;
             }
             case Open: {
-                
-                NSString *url = [_params objectForKey:@"url"];
-                
-                if (url != nil) {
-                    url = [[url stringByReplacingOccurrencesOfString:@"%3A" withString:@":"]
-                           stringByReplacingOccurrencesOfString:@"%2F" withString:@"/"];
-                }
-                
+                NSString *url = [self parseUrl:[_params objectForKey:@"url"]];
                 [_delegate openCommand:url];
-                
                 break;
             }
             case PlayVideo: {
-                
-                NSString *url = [_params objectForKey:@"url"];
-                
-                if (url != nil) {
-                    url = [[url stringByReplacingOccurrencesOfString:@"%3A" withString:@":"]
-                           stringByReplacingOccurrencesOfString:@"%2F" withString:@"/"];
-                }
-                
+                NSString *url = [self parseUrl:[_params objectForKey:@"url"]];
                 [_delegate playVideoCommand:url];
-                
                 break;
             }
             case StorePicture: {
-                
-                NSString *url = [_params objectForKey:@"url"];
-                
-                if (url != nil) {
-                    url = [[url stringByReplacingOccurrencesOfString:@"%3A" withString:@":"]
-                           stringByReplacingOccurrencesOfString:@"%2F" withString:@"/"];
-                }
-                
+                NSString *url = [self parseUrl:[_params objectForKey:@"url"]];
                 [_delegate storePictureCommand:url];
                 break;
             }
@@ -147,6 +117,16 @@
         
     }
     
+}
+
+- (NSString*) parseUrl: (NSString*) url {
+    return url == nil ? nil : [[[[[[[url stringByReplacingOccurrencesOfString:@"%3A" withString:@":"]
+                                    stringByReplacingOccurrencesOfString:@"%2F" withString:@"/"]
+                                   stringByReplacingOccurrencesOfString:@"%2B" withString:@"+"]
+                                  stringByReplacingOccurrencesOfString:@"%3F" withString:@"?"]
+                                 stringByReplacingOccurrencesOfString:@"%26" withString:@"&"]
+                                stringByReplacingOccurrencesOfString:@"%3D" withString:@"="]
+                               stringByReplacingOccurrencesOfString:@"%2C" withString:@","];
 }
 
 - (BOOL) checkParamsForCommand: (SACommand)command andParams:(NSDictionary<NSString*, NSString*> *)params {

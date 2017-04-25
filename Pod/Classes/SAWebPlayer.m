@@ -147,9 +147,17 @@
 }
 
 - (void) removeFromSuperview {
+    // remove notification
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:@"UIDeviceOrientationDidChangeNotification"
                                                   object:nil];
+    
+    // remove child expanded
+    if (_expandedPlayer != nil) {
+        [_expandedPlayer removeFromSuperview];
+    }
+    
+    // finally remove self
     [super removeFromSuperview];
 }
 
@@ -420,6 +428,8 @@
     _expandedPlayer.layer.zPosition = MAXFLOAT;
     _expandedPlayer.isExpanded = true;
     _expandedPlayer.backgroundColor = [UIColor blackColor];
+    _expandedPlayer.clickHandler = _clickHandler;
+    _expandedPlayer.eventHandler = _eventHandler;
     _expandedPlayer.mraid.expandedCustomClosePosition = _mraid.expandedCustomClosePosition;
     
     if (url != nil) {
@@ -450,6 +460,8 @@
     _expandedPlayer.isResized = true;
     _expandedPlayer.backgroundColor = [UIColor blackColor];
     _expandedPlayer.parent = self;
+    _expandedPlayer.clickHandler = _clickHandler;
+    _expandedPlayer.eventHandler = _eventHandler;
     [_expandedPlayer loadHTML:_html witBase:nil];
     [root.view addSubview:_expandedPlayer];
     [_expandedPlayer updateParentFrame:CGRectZero];
@@ -471,11 +483,9 @@
 }
 
 - (void) openCommand:(NSString*)url {
-    
     if (url != nil) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+        _clickHandler([NSURL URLWithString:url]);
     }
-    
 }
 
 - (void) playVideoCommand:(NSString*)url {
