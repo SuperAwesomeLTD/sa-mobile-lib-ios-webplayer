@@ -100,6 +100,9 @@
     if (_expandedPlayer != nil) {
         [_expandedPlayer removeFromSuperview];
     }
+    if (_resizedPlayer != nil) {
+        [_resizedPlayer removeFromSuperview];
+    }
     
     // finally remove self
     [super removeFromSuperview];
