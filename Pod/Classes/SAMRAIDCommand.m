@@ -1,4 +1,5 @@
 #import "SAMRAIDCommand.h"
+#import "SAUtils.h"
 
 @interface SAMRAIDCommand ()
 @property (nonatomic, assign) SACommand command;
@@ -120,13 +121,7 @@
 }
 
 - (NSString*) parseUrl: (NSString*) url {
-    return url == nil ? nil : [[[[[[[url stringByReplacingOccurrencesOfString:@"%3A" withString:@":"]
-                                    stringByReplacingOccurrencesOfString:@"%2F" withString:@"/"]
-                                   stringByReplacingOccurrencesOfString:@"%2B" withString:@"+"]
-                                  stringByReplacingOccurrencesOfString:@"%3F" withString:@"?"]
-                                 stringByReplacingOccurrencesOfString:@"%26" withString:@"&"]
-                                stringByReplacingOccurrencesOfString:@"%3D" withString:@"="]
-                               stringByReplacingOccurrencesOfString:@"%2C" withString:@","];
+    return url == nil ? nil : [url stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (BOOL) checkParamsForCommand: (SACommand)command andParams:(NSDictionary<NSString*, NSString*> *)params {

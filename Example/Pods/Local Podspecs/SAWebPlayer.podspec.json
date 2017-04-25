@@ -21,7 +21,7 @@
   "requires_arc": true,
   "dependencies": {
     "SANetworking": [
-
+      "0.2.9"
     ]
   },
   "source_files": "Pod/Classes/*"
