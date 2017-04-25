@@ -1,5 +1,4 @@
 #import "SAMRAIDCommand.h"
-#import "SAUtils.h"
 
 @interface SAMRAIDCommand ()
 @property (nonatomic, assign) SACommand command;
