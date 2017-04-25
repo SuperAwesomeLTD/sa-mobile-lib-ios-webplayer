@@ -1,1 +1,1 @@
-../../../../../Pod/Classes/SAMRAIDCommand.h
+../../../../../Pod/Classes/MRAID/SAMRAIDCommand.h
