@@ -44,6 +44,9 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"ad1" ofType:@"txt"];
     NSString *ad = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     
+    [_webPlayer1 setClickHandler:^(NSURL *url) {
+        NSLog(@"Should go to url %@", [url absoluteString]);
+    }];
     [_webPlayer1 loadHTML:ad witBase:@"https://s3-eu-west-1.amazonaws.com"];
     
 }
@@ -63,6 +66,9 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"ad2" ofType:@"txt"];
     NSString *ad = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     
+    [_webPlayer1 setClickHandler:^(NSURL *url) {
+        NSLog(@"Should go to url %@", [url absoluteString]);
+    }];
     [_webPlayer1 loadHTML:ad witBase:@"https://s3-eu-west-1.amazonaws.com"];
     
 }
@@ -82,6 +88,9 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"ad3" ofType:@"txt"];
     NSString *ad = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     
+    [_webPlayer1 setClickHandler:^(NSURL *url) {
+        NSLog(@"Should go to url %@", [url absoluteString]);
+    }];
     [_webPlayer1 loadHTML:ad witBase:@"https://s3-eu-west-1.amazonaws.com"];
     
 }
@@ -101,6 +110,9 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"ad4" ofType:@"txt"];
     NSString *ad = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     
+    [_webPlayer1 setClickHandler:^(NSURL *url) {
+        NSLog(@"Should go to url %@", [url absoluteString]);
+    }];
     [_webPlayer1 loadHTML:ad witBase:@"https://s3-eu-west-1.amazonaws.com"];
     
 }

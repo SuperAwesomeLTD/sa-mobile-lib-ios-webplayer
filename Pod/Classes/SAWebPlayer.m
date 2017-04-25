@@ -30,6 +30,13 @@
 
 @property (nonatomic, weak) SAWebPlayer         *parent;
 
+// param that says the web view was once loaded
+@property (nonatomic, assign) BOOL                         finishedLoading;
+
+// strong references to the click and event handlers
+@property (nonatomic, strong) saWebPlayerDidReceiveEvent   eventHandler;
+@property (nonatomic, strong) saWebPlayerDidReceiveClick   clickHandler;
+
 @end
 
 @implementation SAWebPlayer
@@ -39,6 +46,13 @@
     
     // get a weak self reference
     __weak typeof (self) weakSelf = self;
+    
+    // init w/ defaults
+    _eventHandler = ^(SAWebPlayerEvent event) {};
+    _clickHandler = ^(NSURL *url) {};
+    
+    // set to false
+    _finishedLoading = false;
     
     // save the content size
     _contentSize = contentSize;
@@ -275,11 +289,11 @@
 }
 
 - (void) setEventHandler:(saWebPlayerDidReceiveEvent) handler {
-    [_webView setEventHandler:handler];
+    _eventHandler = handler != nil ? handler : _eventHandler;
 }
 
 - (void) setClickHandler:(saWebPlayerDidReceiveClick) handler {
-    [_webView setClickHandler:handler];
+    _clickHandler = handler != nil ? handler : _clickHandler;
 }
 
 - (UIWebView*) getWebView {
@@ -335,17 +349,53 @@
         return false;
     }
     else {
-        // do normal stuff
+        if (_finishedLoading) {
+            
+            // get the request url
+            NSURL *url = [request URL];
+            
+            // get the url as a string
+            NSString *urlStr = [url absoluteString];
+            
+            // protect against about blanks
+            if ([urlStr rangeOfString:@"about:blank"].location != NSNotFound) return true;
+            
+            // check to see if the URL has a redirect, and take only the redirect
+            NSRange redirLoc = [urlStr rangeOfString:@"&redir="];
+            if (redirLoc.location != NSNotFound) {
+                NSInteger strStart = redirLoc.location + redirLoc.length;
+                NSString *redir = [urlStr substringFromIndex:strStart];
+                
+                // update the new url
+                url = [NSURL URLWithString:redir];
+            }
+            
+            // send a callback with the url
+            _clickHandler(url);
+            
+            // don't propagate this
+            return false;
+        }
+        
+        // else just return true
         return true;
     }
 }
 
 - (void) webViewDidFinishLoad:(UIWebView *)webView {
     [webView stringByEvaluatingJavaScriptFromString:@"console.log('SAMRAID_EXT'+document.getElementsByTagName('html')[0].innerHTML);"];
+    
+    if (!_finishedLoading) {
+        _finishedLoading = true;
+        _eventHandler(saWeb_Start);
+    }
 }
 
 - (void) webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    
+    if (!_finishedLoading) {
+        _finishedLoading = true;
+        _eventHandler(saWeb_Error);
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
