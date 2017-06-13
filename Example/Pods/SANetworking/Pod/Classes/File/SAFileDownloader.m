@@ -280,7 +280,7 @@ didFinishDownloadingToURL:(nonnull NSURL *)location {
  * has encountered an error while trying to download
  *
  * @param session      the current URL session instance
- * @param downloadTask the current session tesk instance
+ * @param task         the current session tesk instance
  * @param error        error object describing what's happened
  */
 - (void) URLSession:(NSURLSession *)session
