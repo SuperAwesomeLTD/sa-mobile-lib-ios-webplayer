@@ -22,8 +22,8 @@
         self.scrollView.delegate = self;
         self.scrollView.scrollEnabled = YES;
         self.scrollView.bounces = NO;
-        self.allowsInlineMediaPlayback = NO;
-        self.mediaPlaybackRequiresUserAction = YES;
+        self.allowsInlineMediaPlayback = YES;
+        self.mediaPlaybackRequiresUserAction = NO;
     }
     
     return self;
