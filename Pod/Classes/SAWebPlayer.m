@@ -265,6 +265,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 - (void) closeCommand {
+    [_mraid setStateToHidden];
     [self removeFromSuperview];
 }
 
@@ -287,7 +288,7 @@
         [network sendGET:url withQuery:@{} andHeader:@{} withResponse:^(NSInteger status, NSString *payload, BOOL success) {
             
             if (payload != nil && success) {
-                [_expandedPlayer loadHTML:payload witBase:@""];
+                [self.expandedPlayer loadHTML:payload witBase:@""];
             }
             
         }];
