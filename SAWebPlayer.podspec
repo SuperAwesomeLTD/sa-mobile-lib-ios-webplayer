@@ -20,6 +20,6 @@ Pod::Spec.new do |s|
   }
   s.platform = :ios, '8.0'
   s.requires_arc = true
-  s.dependency 'SANetworking', '0.3.1'
+  s.dependency 'SANetworking', '1.0.0'
   s.source_files = 'Pod/Classes/**/*'
 end

@@ -1,19 +1,23 @@
 PODS:
-  - SANetworking (0.3.1)
+  - SANetworking (1.0.0)
   - SAWebPlayer (1.2.4):
-    - SANetworking (= 0.3.1)
+    - SANetworking (= 1.0.0)
 
 DEPENDENCIES:
   - SAWebPlayer (from `../`)
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - SANetworking
+
 EXTERNAL SOURCES:
   SAWebPlayer:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  SANetworking: bd3fc423e108b09dbad94564af19de9ea6652ae7
-  SAWebPlayer: 1b78933f66e19d9e723ced4088c50e681da78dcb
+  SANetworking: 672cec0782244c2d780c3c58867e58e8ed2917ee
+  SAWebPlayer: b162c93439ac07a9a3283695c9af2c2c681e400f
 
 PODFILE CHECKSUM: c7c79786bfb217c84740414f14ff9cb32433f83a
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0
