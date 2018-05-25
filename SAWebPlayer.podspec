@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'SAWebPlayer'
-  s.version = '1.2.5'
+  s.version = '1.2.6'
   s.summary = 'The SuperAwesome custom extension of iOS UIWebView'
   s.description = <<-DESC
      The SuperAwesome custom extension of iOS UIWebView - optimised to display rich media ads
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.source = { 
 	:git => 'https://github.com/SuperAwesomeLTD/sa-mobile-lib-ios-webplayer.git', 
 	:branch => 'master',
-	:tag => '1.2.5' 
+	:tag => '1.2.6' 
   }
   s.platform = :ios, '8.0'
   s.requires_arc = true
