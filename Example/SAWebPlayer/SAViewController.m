@@ -41,7 +41,7 @@
     _webPlayer1 = [[SAWebPlayer alloc] initWithContentSize:CGSizeMake(320, 50) andParentFrame:_adSupport1.frame];
     [_adSupport1 addSubview:_webPlayer1];
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"ad1" ofType:@"txt"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"ad3" ofType:@"txt"];
     NSString *ad = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     
     [_webPlayer1 setClickHandler:^(NSURL *url) {

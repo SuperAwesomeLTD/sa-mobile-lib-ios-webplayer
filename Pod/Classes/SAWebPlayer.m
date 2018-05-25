@@ -220,7 +220,18 @@
             NSString *urlStr = [url absoluteString];
             
             // protect against about blanks
-            if ([urlStr rangeOfString:@"about:blank"].location != NSNotFound) return true;
+            if ([urlStr rangeOfString:@"about:blank"].location != NSNotFound) {
+                return true;
+            }
+            
+            // guard against iframes
+            if ([urlStr rangeOfString:@"sa-beta-ads-uploads-superawesome.netdna-ssl.com"].location != NSNotFound &&
+                [urlStr rangeOfString:@"/iframes"].location != NSNotFound) {
+                
+                NSLog(@"__WEBVIEW__: SA IFRAME");
+                
+                return true;
+            }
             
             // check to see if the URL has a redirect, and take only the redirect
             NSRange redirLoc = [urlStr rangeOfString:@"&redir="];
