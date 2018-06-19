@@ -1,1 +1,1 @@
-<a href='https://superawesome.tv'><img src='https://ads.superawesome.tv/v2/demo_images/320x50.jpg'/></a>
+<a href='https://superawesome.tv'><img width='100%' height='100%' src='https://sa-beta-ads-uploads-superawesome.netdna-ssl.com/images/Rsn9QudVk4W1mzC6WBE3r9L2FcLVVqFw.jpg' style='object-fit: contain;'/></a>

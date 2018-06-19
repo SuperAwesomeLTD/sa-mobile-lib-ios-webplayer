@@ -1,1 +1,1 @@
-<script id="oajs" type="text/javascript" src="https://cdnadsp.azureedge.net/assets/js/outlyer.ad.cdn.js" onload="outlyerAdCDN.load({ ad: 'popjam', eai: '58E666D3-2ED9-4673-8CCD-72DCBEA3E96E', pli: 'super-awesome-run', oum: 'true' });"></script>
+<a href='https://superawesome.tv'><img width='100%' height='100%' src='https://sa-beta-ads-uploads-superawesome.netdna-ssl.com/images/CuyZlN1PrIjkshuv1YG2u7ClTW7TQFso.jpg' style='object-fit: contain;'/></a>

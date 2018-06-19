@@ -51,7 +51,9 @@
         _mraid = [[SAMRAID alloc] init];
         
         // create the webview and add it as a subview
-        _webView = [[SAWebView alloc] initWithFrame:CGRectMake(0, 0, _contentSize.width, _contentSize.height)];
+        CGRect contentRect = CGRectMake(0, 0, _contentSize.width, _contentSize.height);
+        CGRect size = [self map:contentRect into:parentRect];
+        _webView = [[SAWebView alloc] initWithFrame:size];
         
         _ctx = [_webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
         _ctx[@"console"][@"log"] = ^(JSValue * msg) {
@@ -123,27 +125,26 @@
     
 }
 
+- (void) didMoveToSuperview {
+    [self updateParentFrame:self.superview.frame];
+    [super didMoveToSuperview];
+}
+
 - (void) didRotateScreen {
-    CGRect superFrame = self.superview.frame;
-    [self updateParentFrame:superFrame];
+    [self updateParentFrame:self.superview.frame];
 }
 
 - (void) updateParentFrame:(CGRect) parentRect {
     
     CGRect contentRect = CGRectMake(0, 0, _contentSize.width, _contentSize.height);
     CGRect result = [self map:contentRect into:parentRect];
-    _scaleX = result.size.width / _contentSize.width;
-    _scaleY = result.size.height / _contentSize.height;
-    
     [self setFrame:CGRectMake(0, 0, parentRect.size.width, parentRect.size.height)];
-    
-    _webView.transform = CGAffineTransformMakeScale(_scaleX, _scaleY);
-    _webView.center = self.center;
+    [self.webView setFrame:result];
 }
 
 - (void) loadHTML:(NSString*)html witBase:(NSString*)base {
     // the base HTML that wraps the content html
-    NSString *baseHtml = @"<html><header><style>html, body, div { margin: 0px; padding: 0px; } html, body { width:100%; height:100%; } </style></header><body>_CONTENT_</body></html>";
+    NSString *baseHtml = @"<html><header><meta name='viewport' content='width=device-width'/><style>html, body, div { margin: 0px; padding: 0px; } html, body { width:100%; height:100%; } </style></header><body>_CONTENT_</body></html>";
     
     // replace content keyword with actual content
     baseHtml = [baseHtml stringByReplacingOccurrencesOfString:@"_CONTENT_" withString:html];

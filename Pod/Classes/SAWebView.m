@@ -22,6 +22,7 @@
         self.scrollView.delegate = self;
         self.scrollView.scrollEnabled = YES;
         self.scrollView.bounces = NO;
+        self.scalesPageToFit = YES;
         self.allowsInlineMediaPlayback = YES;
         self.mediaPlaybackRequiresUserAction = NO;
     }

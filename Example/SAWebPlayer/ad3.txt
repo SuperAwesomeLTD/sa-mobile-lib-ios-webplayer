@@ -1,1 +1,1 @@
-<iframe style='padding:0;border:0;' width='100%' height='100%' src='https://sa-beta-ads-uploads-superawesome.netdna-ssl.com/rich-media/eJ5ne4uImiE6bcn8dsz2v8atarDsfQ9n/index.html'/>
+<iframe style='background-color: coral; padding:0;border:0;' width='100%' height='100%' src='https://sa-beta-ads-uploads-superawesome.netdna-ssl.com/rich-media/TatAlbJhLbRayT9fPqfBdAjE9VzVCrZv/index.html'/>
