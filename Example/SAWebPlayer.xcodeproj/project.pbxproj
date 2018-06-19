@@ -19,6 +19,7 @@
 		1B1019F51E93D79C002E48E8 /* mraid4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B1019F41E93D79C002E48E8 /* mraid4.txt */; };
 		1B1019FA1E954174002E48E8 /* mraid5.html in Resources */ = {isa = PBXBuildFile; fileRef = 1B1019F91E954174002E48E8 /* mraid5.html */; };
 		1B1019FC1E964DCA002E48E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B1019FB1E964DCA002E48E8 /* LaunchScreen.storyboard */; };
+		1B7CC2B320D7EB2D005B220B /* SAFullscreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7CC2B220D7EB2D005B220B /* SAFullscreenController.m */; };
 		550C7A5FE1A4A99B40B33EB2 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1345FCE57A3D74479D74CAFC /* libPods-Tests.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -58,6 +59,8 @@
 		1B1019F41E93D79C002E48E8 /* mraid4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mraid4.txt; sourceTree = "<group>"; };
 		1B1019F91E954174002E48E8 /* mraid5.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = mraid5.html; sourceTree = "<group>"; };
 		1B1019FB1E964DCA002E48E8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1B7CC2B120D7EB2D005B220B /* SAFullscreenController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAFullscreenController.h; sourceTree = "<group>"; };
+		1B7CC2B220D7EB2D005B220B /* SAFullscreenController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAFullscreenController.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* SAWebPlayer_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAWebPlayer_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -185,6 +188,8 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* SAViewController.h */,
 				6003F5A6195388D20070C39A /* SAViewController.m */,
+				1B7CC2B120D7EB2D005B220B /* SAFullscreenController.h */,
+				1B7CC2B220D7EB2D005B220B /* SAFullscreenController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -375,6 +380,7 @@
 			files = (
 				6003F59E195388D20070C39A /* SAAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* SAViewController.m in Sources */,
+				1B7CC2B320D7EB2D005B220B /* SAFullscreenController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
