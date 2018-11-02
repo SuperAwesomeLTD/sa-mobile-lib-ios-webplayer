@@ -1,6 +1,6 @@
 PODS:
   - SANetworking (1.0.0)
-  - SAWebPlayer (1.2.4):
+  - SAWebPlayer (1.2.5):
     - SANetworking (= 1.0.0)
 
 DEPENDENCIES:
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   SANetworking: 672cec0782244c2d780c3c58867e58e8ed2917ee
-  SAWebPlayer: b162c93439ac07a9a3283695c9af2c2c681e400f
+  SAWebPlayer: 169217f9e2fad89c026fafdde1f30053e4b08589
 
 PODFILE CHECKSUM: c7c79786bfb217c84740414f14ff9cb32433f83a
 
