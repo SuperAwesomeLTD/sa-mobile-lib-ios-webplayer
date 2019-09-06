@@ -3,6 +3,7 @@
  * @Author:      Gabriel Coman (gabriel.coman@superawesome.tv)
  */
 
+#import <WebKit/WebKit.h>
 #import <UIKit/UIKit.h>
 #import "SAWebView.h"
 #import "SAMRAID.h"
@@ -98,7 +99,7 @@ typedef void (^saWebPlayerDidReceiveClick)(NSURL* url);
  *
  * @return the current used instance of the web view
  */
-- (UIWebView*) getWebView;
+- (WKWebView*) getWebView;
 
 /**
  * Mapping function
