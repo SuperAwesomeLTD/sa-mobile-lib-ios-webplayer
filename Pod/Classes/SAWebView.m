@@ -50,10 +50,10 @@
  * @return  default configuration for the web player
  */
 + (WKWebViewConfiguration*) defaultConfiguration {
-    NSString *jscript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
+    NSString *jscript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width, initial-scale=1'); document.getElementsByTagName('head')[0].appendChild(meta);";
     WKUserScript *userScript = [[WKUserScript alloc] initWithSource:jscript
                                                       injectionTime:WKUserScriptInjectionTimeAtDocumentEnd
-                                                   forMainFrameOnly:YES];
+                                                   forMainFrameOnly:NO];
     WKUserContentController *wkUController = [[WKUserContentController alloc] init];
     [wkUController addUserScript:userScript];
 
