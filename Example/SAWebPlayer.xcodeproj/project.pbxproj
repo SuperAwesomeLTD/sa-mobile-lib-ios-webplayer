@@ -81,7 +81,7 @@
 		9BA4CAF7EE044BD52B46D1D7 /* libPods-SAWebPlayer_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SAWebPlayer_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A177CE07D9B83883923D5A9C /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B78A2338B010B4EE920E192F /* Pods-SAWebPlayer_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAWebPlayer_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SAWebPlayer_Example/Pods-SAWebPlayer_Example.release.xcconfig"; sourceTree = "<group>"; };
-		E210C2433A61E9C222B56F5B /* SAWebPlayer.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SAWebPlayer.podspec; path = ../SAWebPlayer.podspec; sourceTree = "<group>"; };
+		E210C2433A61E9C222B56F5B /* SAWebPlayer.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SAWebPlayer.podspec; path = ../SAWebPlayer.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +281,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

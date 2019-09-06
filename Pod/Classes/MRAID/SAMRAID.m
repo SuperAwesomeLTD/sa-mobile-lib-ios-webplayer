@@ -20,7 +20,7 @@
 }
 
 - (void) injectJS: (NSString*) js {
-    [_webView stringByEvaluatingJavaScriptFromString:js];
+    [_webView evaluateJavaScript:js completionHandler:nil];
 }
 
 - (void) injectMRAID {

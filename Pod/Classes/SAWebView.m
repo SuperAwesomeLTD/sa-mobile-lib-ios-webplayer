@@ -11,23 +11,58 @@
 @implementation SAWebView
 
 /**
- * Overridden "initWithFrame" method that sets up the Web Player internal state
+ * Overridden "initWithFrame:configuration:" method that sets up the Web Player internal state
+ *
+ * @param frame         the view frame to assign the web player to
+ * @param configuration the configuration for the web player
+ * @return              a new instance of the Web Player
+ */
+- (instancetype)initWithFrame:(CGRect)frame configuration:(WKWebViewConfiguration *)configuration {
+    if (self = [super initWithFrame:frame configuration:configuration]) {
+        [self configureScrollView];
+    }
+    return self;
+}
+
+/**
+ * Overridden "initWithFrame:" method that sets up the Web Player internal state
  *
  * @param frame the view frame to assign the web player to
  * @return      a new instance of the Web Player
  */
-- (id) initWithFrame:(CGRect)frame {
-    
+- (instancetype) initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.scrollView.delegate = self;
-        self.scrollView.scrollEnabled = YES;
-        self.scrollView.bounces = NO;
-        self.scalesPageToFit = YES;
-        self.allowsInlineMediaPlayback = YES;
-        self.mediaPlaybackRequiresUserAction = NO;
+        [self configureScrollView];
     }
-    
     return self;
+}
+
+- (void) configureScrollView {
+    self.scrollView.delegate = self;
+    self.scrollView.scrollEnabled = YES;
+    self.scrollView.bounces = NO;
+}
+
+/**
+ * "defaultConfiguration" Returns the default web player configuration,
+ * to be used when initialising this web view
+ *
+ * @return  default configuration for the web player
+ */
++ (WKWebViewConfiguration*) defaultConfiguration {
+    NSString *jscript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
+    WKUserScript *userScript = [[WKUserScript alloc] initWithSource:jscript
+                                                      injectionTime:WKUserScriptInjectionTimeAtDocumentEnd
+                                                   forMainFrameOnly:YES];
+    WKUserContentController *wkUController = [[WKUserContentController alloc] init];
+    [wkUController addUserScript:userScript];
+
+    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+    configuration.allowsInlineMediaPlayback = YES;
+    configuration.mediaPlaybackRequiresUserAction = NO;
+    configuration.userContentController = wkUController;
+    
+    return configuration;
 }
 
 /**
@@ -35,7 +70,7 @@
  * UIWebViewDelegate protocol
  *
  * @param scrollView    the current scroll view of the web view
- * return               a scrolled zoomed UIView; or nil in this case
+ * @return              a scrolled zoomed UIView; or nil in this case
  */
 - (UIView*) viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return nil;

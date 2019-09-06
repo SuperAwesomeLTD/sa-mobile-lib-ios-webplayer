@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name = 'SAWebPlayer'
   s.version = '1.3.0'
-  s.summary = 'The SuperAwesome custom extension of iOS UIWebView'
+  s.summary = 'The SuperAwesome custom extension of iOS WKWebView'
   s.description = <<-DESC
-     The SuperAwesome custom extension of iOS UIWebView - optimised to display rich media ads
+     The SuperAwesome custom extension of iOS WKWebView - optimised to display rich media ads
                        DESC
   s.homepage = 'https://github.com/SuperAwesomeLTD/sa-mobile-lib-ios-webplayer'
   s.license = { 
