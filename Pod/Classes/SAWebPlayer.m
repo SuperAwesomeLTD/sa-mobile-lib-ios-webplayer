@@ -193,9 +193,8 @@
 // WebViewDelegate implementation
 ////////////////////////////////////////////////////////////////////////////////
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    
-    NSString *url = [[request URL] absoluteString];
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    NSString *url = [[navigationAction.request URL] absoluteString];
     
     SAMRAIDCommand *command = [[SAMRAIDCommand alloc] init];
     BOOL isMraid = [command isMRAIDComamnd:url];
@@ -205,20 +204,22 @@
         command.delegate = self;
         [command getQuery:url];
         
-        return false;
+        decisionHandler(WKNavigationActionPolicyCancel);
+        return;
     }
     else {
         if (_finishedLoading) {
             
             // get the request url
-            NSURL *url = [request URL];
+            NSURL *url = [navigationAction.request URL];
             
             // get the url as a string
             NSString *urlStr = [url absoluteString];
             
             // protect against about blanks
             if ([urlStr rangeOfString:@"about:blank"].location != NSNotFound) {
-                return true;
+                decisionHandler(WKNavigationActionPolicyAllow);
+                return;
             }
             
             // guard against iframes
@@ -227,7 +228,8 @@
                 
                 NSLog(@"__WEBVIEW__: SA IFRAME");
                 
-                return true;
+                decisionHandler(WKNavigationActionPolicyAllow);
+                return;
             }
             
             // check to see if the URL has a redirect, and take only the redirect
@@ -244,11 +246,13 @@
             _clickHandler(url);
             
             // don't propagate this
-            return false;
+            decisionHandler(WKNavigationActionPolicyCancel);
+            return;
         }
         
         // else just return true
-        return true;
+        decisionHandler(WKNavigationActionPolicyAllow);
+        return;
     }
 }
 
