@@ -58,7 +58,7 @@
 
 /**
  * Overridden "viewForZoomingInScrollView:" method from the
- * UIWebViewDelegate protocol
+ * UIScrollViewDelegate protocol
  *
  * @param scrollView    the current scroll view of the web view
  * @return              a scrolled zoomed UIView; or nil in this case
